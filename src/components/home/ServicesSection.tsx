@@ -21,7 +21,7 @@ export const ServicesSection = () => {
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-32"
+          className="mb-12"
         >
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold">
             Services

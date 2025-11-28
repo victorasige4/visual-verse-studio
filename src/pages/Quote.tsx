@@ -55,8 +55,8 @@ const Quote = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="w-16 h-1 bg-accent mx-auto mb-8" />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 tracking-tight text-white">
+            <div className="w-16 h-1 bg-accent mx-auto mb-4" />
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight text-white">
               Request a <span className="text-gradient">Quote</span>
             </h1>
             <p className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto font-light leading-relaxed">
@@ -220,8 +220,8 @@ const Quote = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
+            <div className="w-16 h-1 bg-accent mx-auto mb-3" />
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-3 text-white">
               Why Choose VisualVerse?
             </h2>
           </motion.div>

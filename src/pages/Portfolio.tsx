@@ -1,33 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { FocusCards } from "@/components/ui/focus-cards";
 
 const Portfolio = () => {
   const galleryRef = useRef(null);
   const isGalleryInView = useInView(galleryRef, { once: true, margin: "-100px" });
-  
-  const [filter, setFilter] = useState("All");
-
-  const categories = ["All", "Branding", "Photography", "Web Design", "Campaign", "Video"];
-
-  const projects = [
-    { title: "Brand Revolution", category: "Branding", gradient: "from-primary to-accent" },
-    { title: "Urban Stories", category: "Photography", gradient: "from-accent to-primary" },
-    { title: "Digital Dreams", category: "Web Design", gradient: "from-primary/80 to-accent/80" },
-    { title: "Creative Futures", category: "Campaign", gradient: "from-accent/80 to-primary/80" },
-    { title: "Motion Narrative", category: "Video", gradient: "from-primary/90 to-accent/90" },
-    { title: "Visual Identity", category: "Branding", gradient: "from-accent/70 to-primary/70" },
-    { title: "Captured Moments", category: "Photography", gradient: "from-primary to-accent/80" },
-    { title: "Interface Artistry", category: "Web Design", gradient: "from-accent to-primary/80" },
-    { title: "Social Impact", category: "Campaign", gradient: "from-primary/70 to-accent" },
-    { title: "Cinematic Story", category: "Video", gradient: "from-accent/90 to-primary" },
-    { title: "Brand Experience", category: "Branding", gradient: "from-primary/80 to-accent/70" },
-    { title: "Editorial Vision", category: "Photography", gradient: "from-accent/80 to-primary/90" },
-  ];
-
-  const filteredProjects = filter === "All" 
-    ? projects 
-    : projects.filter(p => p.category === filter);
 
   return (
     <div className="min-h-screen">
@@ -41,8 +19,8 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="w-16 h-1 bg-accent mx-auto mb-8" />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 tracking-tight">
+            <div className="w-16 h-1 bg-accent mx-auto mb-4" />
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight">
               Our <span className="text-gradient">Portfolio</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
@@ -52,78 +30,54 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-12 border-b border-border">
+      {/* Services Focus Cards */}
+      <section ref={galleryRef} className="cinematic-section py-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isGalleryInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-8"
           >
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                  filter === category
-                    ? "bg-accent text-white"
-                    : "bg-muted/30 text-muted-foreground hover:bg-muted/50"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+            <div className="w-16 h-1 bg-accent mx-auto mb-3" />
           </motion.div>
-        </div>
-      </section>
-
-      {/* Portfolio Grid */}
-      <section ref={galleryRef} className="cinematic-section">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isGalleryInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                layout
-                className="group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} transition-transform duration-700 group-hover:scale-110`}
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500" />
-                <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <p className="text-sm uppercase tracking-wider text-accent mb-2">
-                      {project.category}
-                    </p>
-                    <h3 className="text-2xl font-heading font-bold group-hover:translate-x-2 transition-transform duration-300">
-                      {project.title}
-                    </h3>
-                  </motion.div>
-                </div>
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/50 transition-colors duration-500 rounded-lg" />
-              </motion.div>
-            ))}
-          </div>
+          
+          <FocusCards cards={[
+            {
+              title: "Photography",
+              src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=800&fit=crop&auto=format",
+            },
+            {
+              title: "Graphic Design",
+              src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop&auto=format",
+            },
+            {
+              title: "Web & UI/UX Design",
+              src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=800&fit=crop&auto=format",
+            },
+            {
+              title: "Social Media & Digital Marketing",
+              src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop&auto=format",
+            },
+            {
+              title: "Branding",
+              src: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=1200&h=800&fit=crop&auto=format",
+            },
+            {
+              title: "Videography",
+              src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&auto=format",
+            },
+          ]} />
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 text-center">
+          <div className="grid md:grid-cols-3 gap-100 items-center justify-center text-center">
             {[
               { number: "150+", label: "Projects Completed" },
               { number: "50+", label: "Happy Clients" },
-              { number: "15", label: "Awards Won" },
               { number: "6", label: "Years Experience" },
             ].map((stat, index) => (
               <motion.div

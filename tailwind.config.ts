@@ -107,6 +107,11 @@ export default {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" },
         },
+        "scroll": {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -116,6 +121,7 @@ export default {
         "scale-in": "scale-in 0.6s ease-out",
         "slide-in-right": "slide-in-right 0.8s ease-out",
         "float": "float 6s ease-in-out infinite",
+        "scroll": "scroll var(--animation-duration, 40s) linear infinite var(--animation-direction, forwards)",
       },
     },
   },

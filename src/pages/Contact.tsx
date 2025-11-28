@@ -7,6 +7,22 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
+// TikTok icon component (not available in lucide-react)
+const Tiktok = ({ size }: { size: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -31,8 +47,8 @@ const Contact = () => {
 
   const contactInfo = [
     { icon: <Mail size={24} />, label: "Email", value: "hello@visualverse.com" },
-    { icon: <Phone size={24} />, label: "Phone", value: "+1 (555) 123-4567" },
-    { icon: <MapPin size={24} />, label: "Location", value: "Los Angeles, CA" },
+    { icon: <Phone size={24} />, label: "Phone", value: "+254 (794) 044-598" },
+    { icon: <MapPin size={24} />, label: "Location", value: "Nairobi, KE" },
   ];
 
   const socials = [
@@ -40,6 +56,7 @@ const Contact = () => {
     { icon: <Linkedin size={24} />, name: "LinkedIn", url: "#" },
     { icon: <Facebook size={24} />, name: "Facebook", url: "#" },
     { icon: <Youtube size={24} />, name: "YouTube", url: "#" },
+    { icon: <Tiktok size={24} />, name: "Tiktok", url: "#" },
   ];
 
   return (
@@ -53,8 +70,8 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="w-16 h-1 bg-accent mx-auto mb-8" />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 tracking-tight text-white">
+            <div className="w-16 h-1 bg-accent mx-auto mb-4" />
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight text-white">
               Get in <span className="text-gradient">Touch</span>
             </h1>
             <p className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto font-light leading-relaxed">
@@ -74,9 +91,9 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="w-16 h-1 bg-accent mb-8" />
-              <h2 className="text-4xl font-heading font-bold mb-6 text-white">Send us a message</h2>
-              <p className="text-lg text-neutral-300 mb-8">
+              <div className="w-16 h-1 bg-accent mb-4" />
+              <h2 className="text-4xl font-heading font-bold mb-3 text-white">Send us a message</h2>
+              <p className="text-lg text-neutral-300 mb-6">
                 Fill out the form below and we'll get back to you within 24 hours.
               </p>
 
@@ -141,9 +158,9 @@ const Contact = () => {
               className="space-y-12"
             >
               <div>
-                <div className="w-16 h-1 bg-accent mb-8" />
-                <h2 className="text-4xl font-heading font-bold mb-6 text-white">Contact Information</h2>
-                <p className="text-lg text-neutral-300 mb-8">
+                <div className="w-16 h-1 bg-accent mb-4" />
+                <h2 className="text-4xl font-heading font-bold mb-3 text-white">Contact Information</h2>
+                <p className="text-lg text-neutral-300 mb-6">
                   Reach out through any of these channels. We're here to help bring your vision to life.
                 </p>
 
@@ -165,7 +182,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-heading font-bold mb-6 text-white">Follow Us</h3>
+                <h3 className="text-2xl font-heading font-bold mb-4 text-white">Follow Us</h3>
                 <div className="flex gap-4">
                   {socials.map((social) => (
                     <a
@@ -185,9 +202,8 @@ const Contact = () => {
               <div className="p-8 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10">
                 <h3 className="text-2xl font-heading font-bold mb-4 text-white">Office Hours</h3>
                 <div className="space-y-2 text-neutral-300">
-                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p>Saturday: 10:00 AM - 4:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p>Monday - Friday: 9:00 AM - 4:00 PM</p>
+                  <p>Saturday & Sunday: Closed</p>
                 </div>
               </div>
             </motion.div>

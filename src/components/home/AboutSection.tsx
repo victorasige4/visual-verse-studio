@@ -15,7 +15,7 @@ export const AboutSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-4"
           >
             <div className="w-16 h-1 bg-accent" />
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">

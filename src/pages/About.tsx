@@ -37,8 +37,8 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="w-16 h-1 bg-accent mx-auto mb-8" />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 tracking-tight">
+            <div className="w-16 h-1 bg-accent mx-auto mb-4" />
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight">
               About <span className="text-gradient">VisualVerse</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
@@ -56,7 +56,7 @@ const About = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center space-y-8"
+            className="text-center space-y-4"
           >
             <h2 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
               Our Mission
@@ -80,7 +80,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-4"
             >
               <div className="w-16 h-1 bg-accent" />
               <h2 className="text-4xl md:text-5xl font-heading font-bold">
@@ -129,10 +129,10 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-20"
+            className="text-center mb-8"
           >
-            <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
+            <div className="w-16 h-1 bg-accent mx-auto mb-3" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3">
               Our Values
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -149,7 +149,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="p-8 rounded-lg bg-gradient-to-br from-muted/30 to-muted/10 hover:from-muted/50 hover:to-muted/20 transition-all duration-500"
               >
-                <h3 className="text-2xl font-heading font-bold mb-4">{value.title}</h3>
+                <h3 className="text-2xl font-heading font-bold mb-2">{value.title}</h3>
                 <p className="text-lg text-muted-foreground">{value.description}</p>
               </motion.div>
             ))}
@@ -164,10 +164,10 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-20"
+            className="text-center mb-8"
           >
-            <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
+            <div className="w-16 h-1 bg-accent mx-auto mb-3" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3">
               Meet the Team
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

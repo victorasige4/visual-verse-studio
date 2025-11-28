@@ -26,7 +26,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h1 className={cn("text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-6 tracking-tight text-white relative z-20")}>
+          <h1 className={cn("text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-4 tracking-tight text-white relative z-20")}>
             <span className="text-gradient">VisualVerse</span>
           </h1>
         </motion.div>
@@ -35,7 +35,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="text-xl md:text-2xl lg:text-3xl text-neutral-300 mb-12 max-w-4xl mx-auto font-light relative z-20"
+          className="text-xl md:text-2xl lg:text-3xl text-neutral-300 mb-8 max-w-4xl mx-auto font-light relative z-20"
         >
           Bold. Creative. Cinematic.
         </motion.p>

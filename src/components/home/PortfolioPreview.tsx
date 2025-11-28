@@ -3,28 +3,107 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { ArrowRight } from "lucide-react";
+import { ExpandableCardDemo, type ExpandableCard } from "../ui/expandable-card";
 
-const projects = [
+const portfolioCards: ExpandableCard[] = [
   {
-    title: "Brand Revolution",
-    category: "Branding",
-    image: "gradient-1",
+    description: "Brand Identity & Strategy",
+    title: "Nexus Branding Campaign",
+    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+    ctaText: "View Project",
+    ctaLink: "/portfolio",
+    content: () => {
+      return (
+        <p>
+          A comprehensive brand identity redesign for Nexus, a cutting-edge tech startup. 
+          This project involved creating a complete visual language that reflects innovation 
+          and forward-thinking. <br /> <br /> We developed a cohesive brand system including 
+          logo design, color palette, typography, and brand guidelines. The new identity 
+          successfully positioned Nexus as a leader in their industry, resulting in increased 
+          brand recognition and market presence. The campaign spanned across digital and print 
+          media, creating a unified brand experience.
+        </p>
+      );
+    },
   },
   {
-    title: "Urban Stories",
-    category: "Photography",
-    image: "gradient-2",
+    description: "Photography & Videography",
+    title: "Urban Lifestyle Series",
+    src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop",
+    ctaText: "View Project",
+    ctaLink: "/portfolio",
+    content: () => {
+      return (
+        <p>
+          A cinematic visual storytelling project capturing the essence of urban living. 
+          This series combined photography and videography to create compelling narratives 
+          about city life. <br /> <br /> We produced a collection of stunning visuals that 
+          showcased the vibrancy and energy of metropolitan environments. The project included 
+          commercial photography, documentary-style video content, and social media assets. 
+          The series received widespread acclaim and was featured in several design publications.
+        </p>
+      );
+    },
   },
   {
-    title: "Digital Dreams",
-    category: "Web Design",
-    image: "gradient-3",
+    description: "Web & UI/UX Design",
+    title: "E-Commerce Platform Redesign",
+    src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+    ctaText: "View Project",
+    ctaLink: "/portfolio",
+    content: () => {
+      return (
+        <p>
+          A complete redesign of a major e-commerce platform focusing on user experience 
+          and conversion optimization. The new design improved usability and accessibility 
+          while maintaining brand identity. <br /> <br /> We conducted extensive user 
+          research, created wireframes and prototypes, and implemented a responsive design 
+          system. The redesign resulted in a 40% increase in user engagement and a 25% 
+          boost in conversion rates. The platform now provides a seamless shopping experience 
+          across all devices.
+        </p>
+      );
+    },
   },
   {
-    title: "Creative Futures",
-    category: "Campaign",
-    image: "gradient-4",
+    description: "Social Media & Marketing",
+    title: "Viral Campaign Strategy",
+    src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
+    ctaText: "View Project",
+    ctaLink: "/portfolio",
+    content: () => {
+      return (
+        <p>
+          A comprehensive social media campaign that achieved viral status across multiple 
+          platforms. We developed a multi-channel strategy that engaged audiences through 
+          creative content and strategic messaging. <br /> <br /> The campaign generated 
+          over 10 million impressions and significantly increased brand awareness. We created 
+          a mix of video content, static graphics, and interactive posts that resonated with 
+          the target audience. The success of this campaign established new benchmarks for 
+          social media engagement in the industry.
+        </p>
+      );
+    },
+  },
+  {
+    description: "Graphic Design & Print",
+    title: "Annual Report Design",
+    src: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&h=600&fit=crop",
+    ctaText: "View Project",
+    ctaLink: "/portfolio",
+    content: () => {
+      return (
+        <p>
+          An award-winning annual report design that transformed complex financial data 
+          into an engaging visual narrative. The design combined elegant typography, 
+          custom illustrations, and strategic use of white space. <br /> <br /> We created 
+          a cohesive design system that made the report both informative and visually 
+          appealing. The project included print design, digital PDF version, and interactive 
+          web elements. The report received recognition from design associations and set 
+          a new standard for corporate communications.
+        </p>
+      );
+    },
   },
 ];
 
@@ -33,16 +112,16 @@ export const PortfolioPreview = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="cinematic-section bg-gradient-to-b from-muted/20 to-background">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="cinematic-section bg-gradient-to-b from-muted/20 to-background py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-8"
         >
-          <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
+          <div className="w-16 h-1 bg-accent mx-auto mb-4" />
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3">
             Featured Work
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -50,61 +129,21 @@ export const PortfolioPreview = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
-            >
-              <Link to="/portfolio">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${
-                    index % 4 === 0
-                      ? "from-primary to-accent"
-                      : index % 4 === 1
-                      ? "from-accent to-primary"
-                      : index % 4 === 2
-                      ? "from-primary/80 to-accent/80"
-                      : "from-accent/80 to-primary/80"
-                  } transition-transform duration-700 group-hover:scale-110`}
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500" />
-                <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <p className="text-sm uppercase tracking-wider text-accent mb-2">
-                      {project.category}
-                    </p>
-                    <h3 className="text-3xl font-heading font-bold group-hover:translate-x-2 transition-transform duration-300">
-                      {project.title}
-                    </h3>
-                  </motion.div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        <ExpandableCardDemo cards={portfolioCards} />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center"
+          className="text-center mt-12"
         >
           <Link to="/portfolio">
             <Button
               size="lg"
               variant="outline"
-              className="group border-accent text-accent hover:bg-accent hover:text-white"
+              className="border-2 border-soft-aqua text-soft-aqua hover:bg-soft-aqua bg-midnight-cyan hover:text-primary font-medium text-lg px-12 py-6"
             >
-              View All Projects
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              View More Projects
             </Button>
           </Link>
         </motion.div>

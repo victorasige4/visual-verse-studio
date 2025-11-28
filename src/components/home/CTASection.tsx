@@ -38,7 +38,7 @@ export const CTASection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-4"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">
             Let's Create What the World Remembers.
