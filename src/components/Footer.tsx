@@ -47,11 +47,11 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2">
               {[
-                "Branding",
                 "Photography & Videography",
                 "Graphic Design",
                 "UI/UX & Web Design",
                 "Social Media & Digital Marketing",
+                "Branding",
               ].map((service) => (
                 <li key={service}>
                   <Link

@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        body: ['Termina Test', 'system-ui', 'sans-serif'],
       },
       colors: {
         'midnight-cyan': 'hsl(var(--midnight-cyan))',
