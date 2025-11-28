@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -44,11 +45,10 @@ const Quote = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative bg-neutral-950">
+      <BackgroundBeams />
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-        
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -56,10 +56,10 @@ const Quote = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-8" />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 tracking-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 tracking-tight text-white">
               Request a <span className="text-gradient">Quote</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto font-light leading-relaxed">
               Tell us about your project and we'll provide a tailored proposal
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ const Quote = () => {
       </section>
 
       {/* Quote Form */}
-      <section className="cinematic-section">
+      <section className="cinematic-section relative z-10">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -78,10 +78,10 @@ const Quote = () => {
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Personal Information */}
               <div className="space-y-6">
-                <h2 className="text-2xl font-heading font-bold">Your Information</h2>
+                <h2 className="text-2xl font-heading font-bold text-white">Your Information</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Name *</label>
+                    <label className="block text-sm font-medium mb-2 text-neutral-300">Name *</label>
                     <Input
                       name="name"
                       placeholder="John Doe"
@@ -92,7 +92,7 @@ const Quote = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Email *</label>
+                    <label className="block text-sm font-medium mb-2 text-neutral-300">Email *</label>
                     <Input
                       name="email"
                       type="email"
@@ -105,7 +105,7 @@ const Quote = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Company</label>
+                  <label className="block text-sm font-medium mb-2 text-neutral-300">Company</label>
                   <Input
                     name="company"
                     placeholder="Your Company Name"
@@ -117,10 +117,10 @@ const Quote = () => {
               </div>
 
               {/* Project Details */}
-              <div className="space-y-6 pt-6 border-t border-border">
-                <h2 className="text-2xl font-heading font-bold">Project Details</h2>
+              <div className="space-y-6 pt-6 border-t border-neutral-800">
+                <h2 className="text-2xl font-heading font-bold text-white">Project Details</h2>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Service Needed *</label>
+                  <label className="block text-sm font-medium mb-2 text-neutral-300">Service Needed *</label>
                   <Select
                     value={formData.service}
                     onValueChange={(value) => handleSelectChange("service", value)}
@@ -143,7 +143,7 @@ const Quote = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Budget Range</label>
+                    <label className="block text-sm font-medium mb-2 text-neutral-300">Budget Range</label>
                     <Select
                       value={formData.budget}
                       onValueChange={(value) => handleSelectChange("budget", value)}
@@ -161,7 +161,7 @@ const Quote = () => {
                     </Select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Timeline</label>
+                    <label className="block text-sm font-medium mb-2 text-neutral-300">Timeline</label>
                     <Select
                       value={formData.timeline}
                       onValueChange={(value) => handleSelectChange("timeline", value)}
@@ -181,7 +181,7 @@ const Quote = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Project Description *</label>
+                  <label className="block text-sm font-medium mb-2 text-neutral-300">Project Description *</label>
                   <Textarea
                     name="description"
                     placeholder="Tell us about your project, goals, and any specific requirements..."
@@ -202,7 +202,7 @@ const Quote = () => {
                 Submit Quote Request
               </Button>
 
-              <p className="text-sm text-muted-foreground text-center">
+              <p className="text-sm text-neutral-400 text-center">
                 We'll review your request and get back to you within 24 hours with a tailored proposal.
               </p>
             </form>
@@ -211,7 +211,7 @@ const Quote = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background">
+      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background relative z-10">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -221,7 +221,7 @@ const Quote = () => {
             className="text-center mb-16"
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
               Why Choose VisualVerse?
             </h2>
           </motion.div>
@@ -249,8 +249,8 @@ const Quote = () => {
                 viewport={{ once: true }}
                 className="text-center p-6"
               >
-                <h3 className="text-2xl font-heading font-bold mb-4">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+                <h3 className="text-2xl font-heading font-bold mb-4 text-white">{item.title}</h3>
+                <p className="text-neutral-300">{item.description}</p>
               </motion.div>
             ))}
           </div>

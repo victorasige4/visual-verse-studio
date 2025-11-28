@@ -3,30 +3,21 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const services = [
-  { number: "01", title: "Photography & Videography", description: "Visual storytelling" },
-  { number: "02", title: "Graphic Design", description: "Digital & print" },
-  { number: "03", title: "Web & UI/UX Design", description: "Experience design" },
-  { number: "04", title: "Social Media & Digital Marketing", description: "Strategy & campaigns" },
-  { number: "05", title: "Branding", description: "Identity & strategy" },
+  { number: "01", title: "Branding", description: "Identity & strategy" },
+  { number: "02", title: "Photography", description: "Visual storytelling" },
+  { number: "03", title: "Design", description: "Digital & print" },
+  { number: "04", title: "Web & Digital", description: "Experience design" },
+  { number: "05", title: "Marketing", description: "Strategy & campaigns" },
+  { number: "06", title: "Production", description: "Studio services" },
 ];
 
-export const ServicesSection = () => {
+export const ServicesList = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-200px" });
 
   return (
-    <section ref={ref} className="cinematic-section bg-background">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-32"
-        >
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold">
-            Services
-          </h2>
-        </motion.div>
+    <section ref={ref} className="min-h-screen flex items-center px-8 md:px-16 lg:px-24 py-32">
+      <div className="max-w-7xl mx-auto w-full">
         <div className="space-y-1">
           {services.map((service, index) => (
             <motion.div
@@ -64,3 +55,4 @@ export const ServicesSection = () => {
     </section>
   );
 };
+

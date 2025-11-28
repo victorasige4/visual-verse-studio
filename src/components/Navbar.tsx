@@ -42,7 +42,7 @@ export const Navbar = () => {
             <img 
               src="/logo file.png" 
               alt="VisualVerse" 
-              className="h-8 w-auto md:h-10 md:w-auto group-hover:opacity-80 transition-opacity"
+              className="h-10 w-auto md:h-12 md:w-auto group-hover:opacity-80 transition-opacity"
             />
           </Link>
 

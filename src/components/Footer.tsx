@@ -51,7 +51,7 @@ export const Footer = () => {
                 "Graphic Design",
                 "UI/UX & Web Design",
                 "Social Media & Digital Marketing",
-                "Branding",
+                "Branding"
               ].map((service) => (
                 <li key={service}>
                   <Link
