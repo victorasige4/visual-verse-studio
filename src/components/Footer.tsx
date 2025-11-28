@@ -10,9 +10,11 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-heading font-bold text-primary">
-              VisualVerse
-            </h3>
+            <img 
+              src="/logo file.png" 
+              alt="VisualVerse" 
+              className="h-8 w-auto md:h-10 md:w-auto"
+            />
             <p className="text-sm text-muted-foreground">
               Bold. Creative. Cinematic.<br />
               Bringing stories to life, one frame at a time.
@@ -46,9 +48,10 @@ export const Footer = () => {
             <ul className="space-y-2">
               {[
                 "Branding",
-                "Photography",
+                "Photography & Videography",
                 "Graphic Design",
-                "UI/UX Design",
+                "UI/UX & Web Design",
+                "Social Media & Digital Marketing",
               ].map((service) => (
                 <li key={service}>
                   <Link
@@ -69,7 +72,7 @@ export const Footer = () => {
             </h4>
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
-                hello@visualverse.studio
+                hello@visualverse.com
               </p>
               <div className="flex space-x-4">
                 <a
@@ -117,7 +120,7 @@ export const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} VisualVerse. All rights reserved.
+              © {currentYear} VisualVerse Creations. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link

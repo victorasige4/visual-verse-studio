@@ -9,7 +9,7 @@ export const CTASection = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="cinematic-section bg-gradient-to-br from-primary to-accent text-white relative overflow-hidden">
+    <section ref={ref} className="cinematic-section bg-gradient-to-br from-midnight-cyan to-soft-aqua text-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-10">
         {[...Array(10)].map((_, i) => (
@@ -50,7 +50,7 @@ export const CTASection = () => {
             <Link to="/quote">
               <Button
                 size="lg"
-                className="bg-white text-primary hover:bg-white/90 font-medium text-lg px-12 py-6"
+                className="bg-soft-aqua text-primary hover:bg-midnight-cyan/90 font-medium text-lg px-12 py-6"
               >
                 Start a Project
               </Button>
@@ -59,7 +59,7 @@ export const CTASection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary font-medium text-lg px-12 py-6"
+                className="border-2 border-soft-aqua text-soft-aqua hover:bg-soft-aqua bg-midnight-cyan hover:text-primary font-medium text-lg px-12 py-6"
               >
                 Get in Touch
               </Button>

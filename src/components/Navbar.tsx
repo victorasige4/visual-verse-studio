@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
-import { ThemeToggle } from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -32,7 +31,7 @@ export const Navbar = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-lg shadow-lg"
+          ? "bg-white/50 backdrop-blur-lg shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -40,9 +39,11 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <span className="text-2xl font-heading font-bold text-primary group-hover:text-accent transition-colors">
-              VisualVerse
-            </span>
+            <img 
+              src="/logo file.png" 
+              alt="VisualVerse" 
+              className="h-8 w-auto md:h-10 md:w-auto group-hover:opacity-80 transition-opacity"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -54,7 +55,9 @@ export const Navbar = () => {
                 className={`text-sm font-medium transition-colors relative group ${
                   location.pathname === item.path
                     ? "text-accent"
-                    : "text-foreground hover:text-accent"
+                    : isScrolled
+                      ? "text-midnight-cyan hover:text-midnight-cyan/80"
+                      : "text-foreground hover:text-accent"
                 }`}
               >
                 {item.name}
@@ -69,7 +72,6 @@ export const Navbar = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
-            <ThemeToggle />
             <Link to="/quote">
               <Button className="hidden md:inline-flex bg-accent hover:bg-accent/90 text-white font-medium">
                 Request Quote
