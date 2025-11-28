@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { FocusCards } from "@/components/ui/focus-cards";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { Button } from "@/components/ui/button";
 
 const Portfolio = () => {
   const galleryRef = useRef(null);
@@ -113,12 +116,19 @@ const Portfolio = () => {
             <p className="text-xl text-muted-foreground">
               Let's create something extraordinary together
             </p>
-            <a
-              href="/quote"
-              className="inline-flex items-center justify-center h-11 rounded-md px-8 bg-accent hover:bg-accent/90 text-white font-medium transition-colors glow-effect"
-            >
-              Start Your Project
-            </a>
+            <div className="flex justify-center">
+              <Link to="/quote">
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="div"
+                  className="bg-accent hover:bg-accent/90 text-white font-medium text-lg px-12 py-6 glow-effect"
+                >
+                  <Button className="bg-transparent hover:bg-transparent text-white border-0 font-medium text-lg px-0 py-0 h-auto">
+                    Start Your Project
+                  </Button>
+                </HoverBorderGradient>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
 export const CTASection = () => {
   const ref = useRef(null);
@@ -48,21 +49,33 @@ export const CTASection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/quote">
-              <Button
-                size="lg"
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="div"
                 className="bg-soft-aqua text-primary hover:bg-midnight-cyan/90 font-medium text-lg px-12 py-6"
               >
-                Start a Project
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-transparent hover:bg-transparent text-primary border-0 font-medium text-lg px-0 py-0 h-auto"
+                >
+                  Start a Project
+                </Button>
+              </HoverBorderGradient>
             </Link>
             <Link to="/contact">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-soft-aqua text-soft-aqua hover:bg-soft-aqua bg-midnight-cyan hover:text-primary font-medium text-lg px-12 py-6"
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="div"
+                className="bg-midnight-cyan text-soft-aqua hover:bg-soft-aqua hover:text-primary font-medium text-lg px-12 py-6"
               >
-                Get in Touch
-              </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent hover:bg-transparent text-soft-aqua border-0 font-medium text-lg px-0 py-0 h-auto"
+                >
+                  Get in Touch
+                </Button>
+              </HoverBorderGradient>
             </Link>
           </div>
         </motion.div>

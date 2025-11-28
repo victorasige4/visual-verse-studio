@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -73,9 +74,15 @@ export const Navbar = () => {
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
             <Link to="/quote">
-              <Button className="hidden md:inline-flex bg-accent hover:bg-accent/90 text-white font-medium">
-                Request Quote
-              </Button>
+              <HoverBorderGradient
+                containerClassName="rounded-full hidden md:flex"
+                as="div"
+                className="bg-accent hover:bg-accent/90 text-white font-medium px-6 py-2"
+              >
+                <Button className="bg-transparent hover:bg-transparent text-white border-0 font-medium px-0 py-0 h-auto">
+                  Request Quote
+                </Button>
+              </HoverBorderGradient>
             </Link>
 
             {/* Mobile Menu Button */}
@@ -115,9 +122,15 @@ export const Navbar = () => {
                 </Link>
               ))}
               <Link to="/quote" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full bg-accent hover:bg-accent/90 text-white">
-                  Request Quote
-                </Button>
+                <HoverBorderGradient
+                  containerClassName="rounded-full w-full"
+                  as="div"
+                  className="bg-accent hover:bg-accent/90 text-white px-6 py-2"
+                >
+                  <Button className="bg-transparent hover:bg-transparent text-white border-0 w-full px-0 py-0 h-auto">
+                    Request Quote
+                  </Button>
+                </HoverBorderGradient>
               </Link>
             </div>
           </motion.div>

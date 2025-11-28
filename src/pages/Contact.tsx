@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -140,13 +141,19 @@ const Contact = () => {
                     className="bg-muted/30 border-border focus:border-accent resize-none"
                   />
                 </div>
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-accent hover:bg-accent/90 text-white font-medium glow-effect"
+                <HoverBorderGradient
+                  containerClassName="rounded-full w-full"
+                  as="div"
+                  className="bg-accent hover:bg-accent/90 text-white font-medium glow-effect"
                 >
-                  Send Message
-                </Button>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="bg-transparent hover:bg-transparent text-white border-0 font-medium w-full px-0 py-0 h-auto"
+                  >
+                    Send Message
+                  </Button>
+                </HoverBorderGradient>
               </form>
             </motion.div>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "../ui/button";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
 import { Link } from "react-router-dom";
 import { Boxes } from "../ui/background-boxes";
 import { cn } from "@/lib/utils";
@@ -44,15 +45,21 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="relative z-20"
+          className="relative z-20 flex justify-center"
         >
           <Link to="/portfolio">
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-white border-2 border-midnight-cyan font-medium text-lg px-12 py-6 glow-effect"
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="div"
+              className="bg-accent hover:bg-accent/90 text-white font-medium text-lg px-12 py-6 glow-effect rounded-full"
             >
-              Explore Our Work
-            </Button>
+              <Button
+                size="lg"
+                className="bg-transparent hover:bg-transparent text-white border-0 font-medium text-lg px-0 py-0 h-auto shadow-none"
+              >
+                Explore Our Work
+              </Button>
+            </HoverBorderGradient>
           </Link>
         </motion.div>
       </div>

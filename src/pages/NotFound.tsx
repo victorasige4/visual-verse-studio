@@ -2,6 +2,8 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, ArrowLeft } from "lucide-react";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   const location = useLocation();
@@ -27,20 +29,29 @@ const NotFound = () => {
           The page you're looking for seems to have wandered off into the creative cosmos.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center h-11 rounded-md px-8 bg-accent hover:bg-accent/90 text-white font-medium transition-colors glow-effect"
-          >
-            <Home className="mr-2" size={20} />
-            Back to Home
+          <Link to="/">
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="div"
+              className="bg-accent hover:bg-accent/90 text-white font-medium glow-effect"
+            >
+              <Button className="bg-transparent hover:bg-transparent text-white border-0 font-medium px-8 py-0 h-auto inline-flex items-center justify-center">
+                <Home className="mr-2" size={20} />
+                Back to Home
+              </Button>
+            </HoverBorderGradient>
           </Link>
-          <button
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
             onClick={() => window.history.back()}
-            className="inline-flex items-center justify-center h-11 rounded-md px-8 border border-accent text-accent hover:bg-accent hover:text-white font-medium transition-colors"
+            className="bg-transparent border border-accent text-accent hover:bg-accent hover:text-white font-medium"
           >
-            <ArrowLeft className="mr-2" size={20} />
-            Go Back
-          </button>
+            <Button className="bg-transparent hover:bg-transparent text-accent border-0 font-medium px-8 py-0 h-auto inline-flex items-center justify-center">
+              <ArrowLeft className="mr-2" size={20} />
+              Go Back
+            </Button>
+          </HoverBorderGradient>
         </div>
       </motion.div>
     </div>

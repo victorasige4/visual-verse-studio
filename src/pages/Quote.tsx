@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -194,13 +195,19 @@ const Quote = () => {
                 </div>
               </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-accent hover:bg-accent/90 text-white font-medium text-lg py-6 glow-effect"
+              <HoverBorderGradient
+                containerClassName="rounded-full w-full"
+                as="div"
+                className="bg-accent hover:bg-accent/90 text-white font-medium text-lg py-6 glow-effect"
               >
-                Submit Quote Request
-              </Button>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="bg-transparent hover:bg-transparent text-white border-0 font-medium text-lg w-full px-0 py-0 h-auto"
+                >
+                  Submit Quote Request
+                </Button>
+              </HoverBorderGradient>
 
               <p className="text-sm text-neutral-400 text-center">
                 We'll review your request and get back to you within 24 hours with a tailored proposal.

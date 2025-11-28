@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
 import { ExpandableCardDemo, type ExpandableCard } from "../ui/expandable-card";
 
 const portfolioCards: ExpandableCard[] = [
@@ -135,16 +136,22 @@ export const PortfolioPreview = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-12 flex justify-center"
         >
           <Link to="/portfolio">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-soft-aqua text-soft-aqua hover:bg-soft-aqua bg-midnight-cyan hover:text-primary font-medium text-lg px-12 py-6"
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="div"
+              className="bg-midnight-cyan text-soft-aqua hover:bg-soft-aqua hover:text-primary font-medium text-lg px-12 py-6"
             >
-              View More Projects
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-transparent hover:bg-transparent text-soft-aqua border-0 font-medium text-lg px-0 py-0 h-auto"
+              >
+                View More Projects
+              </Button>
+            </HoverBorderGradient>
           </Link>
         </motion.div>
       </div>
