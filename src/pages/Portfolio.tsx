@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FocusCards } from "@/components/ui/focus-cards";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,18 @@ import { Button } from "@/components/ui/button";
 const Portfolio = () => {
   const galleryRef = useRef(null);
   const isGalleryInView = useInView(galleryRef, { once: true, margin: "-100px" });
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen">
@@ -49,26 +61,32 @@ const Portfolio = () => {
             {
               title: "Photography",
               src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=800&fit=crop&auto=format",
-            },
-            {
-              title: "Graphic Design",
-              src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop&auto=format",
-            },
-            {
-              title: "Web & UI/UX Design",
-              src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=800&fit=crop&auto=format",
-            },
-            {
-              title: "Social Media & Digital Marketing",
-              src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop&auto=format",
-            },
-            {
-              title: "Branding",
-              src: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=1200&h=800&fit=crop&auto=format",
+              id: "photography",
             },
             {
               title: "Videography",
               src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&auto=format",
+              id: "videography",
+            },
+            {
+              title: "Graphic Design",
+              src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop&auto=format",
+              id: "graphic-design",
+            },
+            {
+              title: "Web & UI/UX Design",
+              src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=800&fit=crop&auto=format",
+              id: "web-ui-ux-design",
+            },
+            {
+              title: "Social Media & Digital Marketing",
+              src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop&auto=format",
+              id: "social-media-digital-marketing",
+            },
+            {
+              title: "Branding",
+              src: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=1200&h=800&fit=crop&auto=format",
+              id: "branding",
             },
           ]} />
         </div>
