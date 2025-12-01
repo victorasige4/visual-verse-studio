@@ -53,12 +53,12 @@ export const HeroSection = () => {
               as="div"
               className="bg-accent hover:bg-accent/90 text-white font-medium text-lg px-12 py-6 glow-effect rounded-full"
             >
-              <Button
-                size="lg"
+            <Button
+              size="lg"
                 className="bg-transparent hover:bg-transparent text-white border-0 font-medium text-lg px-0 py-0 h-auto shadow-none"
-              >
-                Explore Our Work
-              </Button>
+            >
+              Explore Our Work
+            </Button>
             </HoverBorderGradient>
           </Link>
         </motion.div>

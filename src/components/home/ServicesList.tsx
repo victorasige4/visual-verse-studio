@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 const services = [
-  { number: "01", title: "Branding", description: "Identity & strategy" },
-  { number: "02", title: "Photography", description: "Visual storytelling" },
-  { number: "03", title: "Design", description: "Digital & print" },
-  { number: "04", title: "Web & Digital", description: "Experience design" },
-  { number: "05", title: "Marketing", description: "Strategy & campaigns" },
-  { number: "06", title: "Production", description: "Studio services" },
+  { number: "01", title: "Photography", description: "Visual storytelling", portfolioId: "photography" },
+  { number: "02", title: "Videography", description: "Studio services", portfolioId: "videography" },
+  { number: "03", title: "Graphic Design", description: "Digital & print", portfolioId: "graphic-design" },
+  { number: "04", title: "Web & UI/UX Design", description: "Experience design", portfolioId: "web-ui-ux-design" },
+  { number: "05", title: "Social Media & Digital Marketing", description: "Strategy & campaigns", portfolioId: "social-media-digital-marketing" },
+  { number: "06", title: "Branding", description: "Identity & strategy", portfolioId: "branding" },
 ];
-
 export const ServicesList = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-200px" });
@@ -40,7 +40,14 @@ export const ServicesList = () => {
                     {service.number}
                   </span>
                   <h3 className="text-4xl md:text-6xl lg:text-7xl font-bold flex-1 group-hover:text-soft-aqua transition-colors duration-500">
-                    {service.title}
+                    <LinkPreview 
+                      url={`/portfolio#${service.portfolioId}`}
+                      className="hover:text-soft-aqua transition-colors duration-500"
+                      width={250}
+                      height={150}
+                    >
+                      {service.title}
+                    </LinkPreview>
                   </h3>
                   <p className="text-lg md:text-xl opacity-60 font-light hidden md:block">
                     {service.description}

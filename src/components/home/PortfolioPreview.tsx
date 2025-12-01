@@ -5,28 +5,9 @@ import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
 import { ExpandableCardDemo, type ExpandableCard } from "../ui/expandable-card";
+import { Cover } from "../ui/cover";
 
 const portfolioCards: ExpandableCard[] = [
-  {
-    description: "Brand Identity & Strategy",
-    title: "Nexus Branding Campaign",
-    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
-    ctaText: "View Project",
-    ctaLink: "/portfolio",
-    content: () => {
-      return (
-        <p>
-          A comprehensive brand identity redesign for Nexus, a cutting-edge tech startup. 
-          This project involved creating a complete visual language that reflects innovation 
-          and forward-thinking. <br /> <br /> We developed a cohesive brand system including 
-          logo design, color palette, typography, and brand guidelines. The new identity 
-          successfully positioned Nexus as a leader in their industry, resulting in increased 
-          brand recognition and market presence. The campaign spanned across digital and print 
-          media, creating a unified brand experience.
-        </p>
-      );
-    },
-  },
   {
     description: "Photography & Videography",
     title: "Urban Lifestyle Series",
@@ -62,26 +43,6 @@ const portfolioCards: ExpandableCard[] = [
           system. The redesign resulted in a 40% increase in user engagement and a 25% 
           boost in conversion rates. The platform now provides a seamless shopping experience 
           across all devices.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Social Media & Marketing",
-    title: "Viral Campaign Strategy",
-    src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
-    ctaText: "View Project",
-    ctaLink: "/portfolio",
-    content: () => {
-      return (
-        <p>
-          A comprehensive social media campaign that achieved viral status across multiple 
-          platforms. We developed a multi-channel strategy that engaged audiences through 
-          creative content and strategic messaging. <br /> <br /> The campaign generated 
-          over 10 million impressions and significantly increased brand awareness. We created 
-          a mix of video content, static graphics, and interactive posts that resonated with 
-          the target audience. The success of this campaign established new benchmarks for 
-          social media engagement in the industry.
         </p>
       );
     },
@@ -123,7 +84,7 @@ export const PortfolioPreview = () => {
         >
           <div className="w-16 h-1 bg-accent mx-auto mb-4" />
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3">
-            Featured Work
+            <Cover>Featured Work</Cover>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A glimpse into our creative universe
