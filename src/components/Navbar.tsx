@@ -1,141 +1,99 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "./ui/button";
+import {
+  Navbar as ResizableNavbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "./ui/resizable-navbar";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "./ui/button";
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", link: "/" },
+    { name: "About", link: "/about" },
+    { name: "Services", link: "/services" },
+    { name: "Portfolio", link: "/portfolio" },
+    { name: "Contact", link: "/contact" },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-white/50 backdrop-blur-lg shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <img 
-              src="/logo file.png" 
-              alt="VisualVerse" 
-              className="h-10 w-auto md:h-12 md:w-auto group-hover:opacity-80 transition-opacity"
-            />
-          </Link>
+    <ResizableNavbar>
+      {/* Desktop Navigation */}
+      <NavBody>
+        <NavbarLogo logoUrl="/logo file.png" />
+        <NavItems 
+          items={navItems.map(item => ({
+            name: item.name,
+            link: item.link
+          }))} 
+        />
+        <div className="flex items-center gap-3">
+          <Link to="/quote" className="hidden md:block">
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="div"
+              className="bg-accent hover:bg-accent/90 text-white font-medium px-6 py-2"
+            >
+              <Button className="bg-transparent hover:bg-transparent text-white border-0 font-medium px-0 py-0 h-auto">
+                Request Quote
+              </Button>
+            </HoverBorderGradient>
+            </Link>
+        </div>
+      </NavBody>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors relative group ${
-                  location.pathname === item.path
-                    ? "text-accent"
-                    : isScrolled
-                      ? "text-midnight-cyan hover:text-midnight-cyan/80"
-                      : "text-foreground hover:text-accent"
-                }`}
-              >
-                {item.name}
-                <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                    location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+      {/* Mobile Navigation */}
+      <MobileNav>
+        <MobileNavHeader>
+          <NavbarLogo logoUrl="/logo file.png" />
+          <MobileNavToggle
+            isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </MobileNavHeader>
+        <MobileNavMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        >
+          {navItems.map((item, idx) => (
+                <Link
+              key={`mobile-link-${idx}`}
+              to={item.link}
+                  onClick={() => setIsMobileMenuOpen(false)}
+              className={`relative text-neutral-600 dark:text-neutral-300 block py-2 ${
+                location.pathname === item.link
+                  ? "text-accent font-semibold"
+                  : "hover:text-accent"
                   }`}
-                />
-              </Link>
-            ))}
-          </div>
-
-          {/* Right Side Actions */}
-          <div className="flex items-center space-x-4">
-            <Link to="/quote">
+                >
+              <span className="block">{item.name}</span>
+                </Link>
+              ))}
+          <div className="flex w-full flex-col gap-4 pt-4">
+              <Link to="/quote" onClick={() => setIsMobileMenuOpen(false)}>
               <HoverBorderGradient
-                containerClassName="rounded-full hidden md:flex"
+                containerClassName="rounded-full w-full"
                 as="div"
-                className="bg-accent hover:bg-accent/90 text-white font-medium px-6 py-2"
+                className="bg-accent hover:bg-accent/90 text-white px-6 py-2"
               >
-                <Button className="bg-transparent hover:bg-transparent text-white border-0 font-medium px-0 py-0 h-auto">
+                <Button className="bg-transparent hover:bg-transparent text-white border-0 w-full px-0 py-0 h-auto">
                   Request Quote
                 </Button>
               </HoverBorderGradient>
-            </Link>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-foreground"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border"
-          >
-            <div className="px-6 py-6 space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block text-lg font-medium transition-colors ${
-                    location.pathname === item.path
-                      ? "text-accent"
-                      : "text-foreground hover:text-accent"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Link to="/quote" onClick={() => setIsMobileMenuOpen(false)}>
-                <HoverBorderGradient
-                  containerClassName="rounded-full w-full"
-                  as="div"
-                  className="bg-accent hover:bg-accent/90 text-white px-6 py-2"
-                >
-                  <Button className="bg-transparent hover:bg-transparent text-white border-0 w-full px-0 py-0 h-auto">
-                    Request Quote
-                  </Button>
-                </HoverBorderGradient>
               </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+        </MobileNavMenu>
+      </MobileNav>
+    </ResizableNavbar>
   );
 };
