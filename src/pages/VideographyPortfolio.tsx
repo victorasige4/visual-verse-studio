@@ -106,7 +106,7 @@ const DummyContent = ({ title, description }: { title: string; description: stri
 const videographyData = [
   {
     category: "Videography",
-    title: "Wedding Films",
+    title: "Weddings",
     src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&h=800&fit=crop&auto=format",
     content: (
       <DummyContent
@@ -117,7 +117,7 @@ const videographyData = [
   },
   {
     category: "Videography",
-    title: "Corporate Videos",
+    title: "Graduations",
     src: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1200&h=800&fit=crop&auto=format",
     content: (
       <DummyContent

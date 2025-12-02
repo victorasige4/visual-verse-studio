@@ -117,12 +117,12 @@ const graphicDesignData = [
   },
   {
     category: "Graphic Design",
-    title: "Brand Identity",
+    title: "Posters & Flyers",
     src: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1200&h=800&fit=crop&auto=format",
     content: (
       <DummyContent
-        title="Brand Identity Systems"
-        description="Developing comprehensive brand identities that tell your story. From color palettes to typography, we create cohesive visual systems that strengthen your brand presence."
+        title="Posters & Flyers"
+        description="Creating posters and flyers that capture attention. We design eye-catching, informative posters and flyers that leave a lasting impression."
       />
     ),
   },
@@ -145,17 +145,6 @@ const graphicDesignData = [
       <DummyContent
         title="Social Media Design"
         description="Creating scroll-stopping social media graphics. We design engaging visuals optimized for each platform to maximize your social media impact."
-      />
-    ),
-  },
-  {
-    category: "Graphic Design",
-    title: "Packaging Design",
-    src: "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="Packaging Design"
-        description="Designing packaging that sells. We create eye-catching, functional packaging designs that protect your product while attracting customers on the shelf."
       />
     ),
   },

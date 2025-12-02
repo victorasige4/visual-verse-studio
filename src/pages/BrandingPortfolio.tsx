@@ -37,7 +37,7 @@ const BrandingPortfolio = () => {
             Building powerful brands that stand out and connect
           </p>
         </motion.div>
-        <Carousel items={cards} />
+        <Carousel items={cards} hideArrows={true} />
       </div>
 
       {/* CTA Section */}
@@ -106,23 +106,12 @@ const DummyContent = ({ title, description }: { title: string; description: stri
 const brandingData = [
   {
     category: "Branding",
-    title: "Brand Strategy",
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="Brand Strategy"
-        description="Developing comprehensive brand strategies that define your market position. We create strategic frameworks that guide all your brand decisions and communications."
-      />
-    ),
-  },
-  {
-    category: "Branding",
-    title: "Visual Identity",
+    title: "Logos & Branding",
     src: "https://images.unsplash.com/photo-1561070791-36c11767b26a?w=1200&h=800&fit=crop&auto=format",
     content: (
       <DummyContent
-        title="Visual Identity Design"
-        description="Creating distinctive visual identities that make you memorable. We design complete visual systems including logos, colors, typography, and brand assets."
+        title="Logos & Branding"
+        description="Creating distinctive logos and branding that make you memorable. We design complete visual systems including logos, colors, typography, and brand assets."
       />
     ),
   },
@@ -134,28 +123,6 @@ const brandingData = [
       <DummyContent
         title="Brand Guidelines"
         description="Documenting your brand standards for consistency. We create comprehensive brand guidelines that ensure your brand is applied correctly across all touchpoints."
-      />
-    ),
-  },
-  {
-    category: "Branding",
-    title: "Naming & Positioning",
-    src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="Brand Naming & Positioning"
-        description="Finding the perfect name and position for your brand. We develop memorable brand names and positioning strategies that differentiate you in the market."
-      />
-    ),
-  },
-  {
-    category: "Branding",
-    title: "Brand Messaging",
-    src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="Brand Messaging"
-        description="Crafting compelling brand messages that resonate. We develop your brand voice, messaging framework, and key communications that connect with your audience."
       />
     ),
   },

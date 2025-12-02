@@ -17,6 +17,8 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
+  hideArrows?: boolean;
+  disableClick?: boolean;
 }
 
 type Card = {
@@ -29,12 +31,14 @@ type Card = {
 export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
   currentIndex: number;
+  disableClick?: boolean;
 }>({
   onCardClose: () => {},
   currentIndex: 0,
+  disableClick: false,
 });
 
-export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
+export const Carousel = ({ items, initialScroll = 0, hideArrows = false, disableClick = false }: CarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
@@ -86,7 +90,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   return (
     <CarouselContext.Provider
-      value={{ onCardClose: handleCardClose, currentIndex }}
+      value={{ onCardClose: handleCardClose, currentIndex, disableClick }}
     >
       <div className="relative w-full">
         <div
@@ -130,22 +134,24 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             ))}
           </div>
         </div>
-        <div className="mr-10 flex justify-end gap-2">
-          <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 hover:bg-accent/30 disabled:opacity-50 transition-colors"
-            onClick={scrollLeft}
-            disabled={!canScrollLeft}
-          >
-            <IconArrowNarrowLeft className="h-6 w-6 text-foreground" />
-          </button>
-          <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 hover:bg-accent/30 disabled:opacity-50 transition-colors"
-            onClick={scrollRight}
-            disabled={!canScrollRight}
-          >
-            <IconArrowNarrowRight className="h-6 w-6 text-foreground" />
-          </button>
-        </div>
+        {!hideArrows && (
+          <div className="mr-10 flex justify-end gap-2">
+            <button
+              className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 hover:bg-accent/30 disabled:opacity-50 transition-colors"
+              onClick={scrollLeft}
+              disabled={!canScrollLeft}
+            >
+              <IconArrowNarrowLeft className="h-6 w-6 text-foreground" />
+            </button>
+            <button
+              className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 hover:bg-accent/30 disabled:opacity-50 transition-colors"
+              onClick={scrollRight}
+              disabled={!canScrollRight}
+            >
+              <IconArrowNarrowRight className="h-6 w-6 text-foreground" />
+            </button>
+          </div>
+        )}
       </div>
     </CarouselContext.Provider>
   );
@@ -162,7 +168,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
+  const { onCardClose, currentIndex, disableClick } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -184,7 +190,9 @@ export const Card = ({
   useOutsideClick(containerRef, () => handleClose());
 
   const handleOpen = () => {
-    setOpen(true);
+    if (!disableClick) {
+      setOpen(true);
+    }
   };
 
   const handleClose = () => {
@@ -237,7 +245,11 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[40rem] md:w-96 hover:scale-105 transition-transform duration-300"
+        disabled={disableClick}
+        className={cn(
+          "relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[40rem] md:w-96 hover:scale-105 transition-transform duration-300",
+          disableClick && "cursor-default"
+        )}
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">

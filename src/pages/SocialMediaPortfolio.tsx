@@ -37,7 +37,7 @@ const SocialMediaPortfolio = () => {
             Growing your brand through strategic digital marketing
           </p>
         </motion.div>
-        <Carousel items={cards} />
+        <Carousel items={cards} hideArrows={true} />
       </div>
 
       {/* CTA Section */}
@@ -107,55 +107,11 @@ const socialMediaData = [
   {
     category: "Social Media & Digital Marketing",
     title: "Content Strategy",
-    src: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=1200&h=800&fit=crop&auto=format",
+    src: "/images/social media post.jpg",
     content: (
       <DummyContent
-        title="Content Strategy"
-        description="Developing data-driven content strategies that engage your audience. We create comprehensive content plans that align with your brand goals and resonate with your target market."
-      />
-    ),
-  },
-  {
-    category: "Social Media & Digital Marketing",
-    title: "Social Media Management",
-    src: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="Social Media Management"
-        description="Managing your social presence across all platforms. We handle content creation, posting schedules, community engagement, and performance tracking to grow your following."
-      />
-    ),
-  },
-  {
-    category: "Social Media & Digital Marketing",
-    title: "PPC Advertising",
-    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="PPC Advertising"
-        description="Running targeted paid advertising campaigns. We create and optimize PPC campaigns across Google, Facebook, and other platforms to maximize your ROI."
-      />
-    ),
-  },
-  {
-    category: "Social Media & Digital Marketing",
-    title: "SEO Optimization",
-    src: "https://images.unsplash.com/photo-1571677208715-0e8f26c6c2c2?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="SEO Optimization"
-        description="Improving your search engine rankings. We implement proven SEO strategies to increase your organic visibility and drive qualified traffic to your website."
-      />
-    ),
-  },
-  {
-    category: "Social Media & Digital Marketing",
-    title: "Email Marketing",
-    src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="Email Marketing"
-        description="Creating email campaigns that convert. We design and execute email marketing strategies that nurture leads, engage customers, and drive sales."
+        title="Social Media Posts"
+        description="Creating engaging social media posts that resonate with your audience. We create content that aligns with your brand goals and resonates with your target market."
       />
     ),
   },

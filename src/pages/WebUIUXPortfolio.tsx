@@ -37,7 +37,7 @@ const WebUIUXPortfolio = () => {
             Designing digital experiences that delight and convert
           </p>
         </motion.div>
-        <Carousel items={cards} />
+        <Carousel items={cards} hideArrows={true} disableClick={true} />
       </div>
 
       {/* CTA Section */}
@@ -123,28 +123,6 @@ const webUIUXData = [
       <DummyContent
         title="Mobile App Design"
         description="Designing intuitive mobile experiences. We create app interfaces that are both beautiful and easy to use, optimized for iOS and Android platforms."
-      />
-    ),
-  },
-  {
-    category: "Web & UI/UX Design",
-    title: "User Interface",
-    src: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="UI Design"
-        description="Crafting pixel-perfect user interfaces. We design clean, modern interfaces that enhance usability and create delightful user experiences."
-      />
-    ),
-  },
-  {
-    category: "Web & UI/UX Design",
-    title: "User Experience",
-    src: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=1200&h=800&fit=crop&auto=format",
-    content: (
-      <DummyContent
-        title="UX Design"
-        description="Optimizing user experiences through research and testing. We create user-centered designs backed by data, ensuring your product meets user needs effectively."
       />
     ),
   },

@@ -40,10 +40,12 @@ export const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-6xl font-heading font-bold text-accent/30">VV</div>
-              </div>
+            <div className="aspect-square rounded-lg overflow-hidden shadow-2xl">
+              <img 
+                src="/images/photographer.jpg" 
+                alt="Professional photographer with camera" 
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-lg -z-10" />
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-lg -z-10" />

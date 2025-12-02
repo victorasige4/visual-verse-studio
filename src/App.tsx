@@ -8,6 +8,8 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Preloader } from "./components/Preloader";
+import { TermsModal } from "./components/TermsModal";
+import { PrivacyModal } from "./components/PrivacyModal";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -24,10 +26,20 @@ import WebUIUXPortfolio from "./pages/WebUIUXPortfolio";
 import SocialMediaPortfolio from "./pages/SocialMediaPortfolio";
 import BrandingPortfolio from "./pages/BrandingPortfolio";
 
+// Global state for modals
+export let openTermsModal: (() => void) | null = null;
+export let openPrivacyModal: (() => void) | null = null;
+
 const queryClient = new QueryClient();
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+
+  // Expose the functions globally
+  openTermsModal = () => setIsTermsModalOpen(true);
+  openPrivacyModal = () => setIsPrivacyModalOpen(true);
 
   return (
   <QueryClientProvider client={queryClient}>
@@ -64,6 +76,9 @@ const App = () => {
               <ScrollToTopButton />
         </div>
           )}
+          {/* Modals at root level - cover entire page */}
+          <TermsModal isOpen={isTermsModalOpen} onClose={() => setIsTermsModalOpen(false)} />
+          <PrivacyModal isOpen={isPrivacyModalOpen} onClose={() => setIsPrivacyModalOpen(false)} />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
