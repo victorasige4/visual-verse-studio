@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { FloatingParticles } from "@/components/ui/floating-particles";
 
 const testimonials = [
   {
@@ -46,8 +47,9 @@ export const TestimonialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="cinematic-section py-20 bg-background overflow-hidden">
-      <div className="max-w-8xl mx-auto px-10 mb-4">
+    <section ref={ref} className="cinematic-section py-8 bg-background overflow-hidden relative">
+      <FloatingParticles />
+      <div className="relative z-10 max-w-8xl mx-auto px-10 mb-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

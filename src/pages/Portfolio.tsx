@@ -25,7 +25,7 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -46,7 +46,7 @@ const Portfolio = () => {
       </section>
 
       {/* Services Focus Cards */}
-      <section ref={galleryRef} className="cinematic-section py-20">
+      <section ref={galleryRef} className="cinematic-section py-8">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -62,31 +62,37 @@ const Portfolio = () => {
               title: "Photography",
               src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=800&fit=crop&auto=format",
               id: "photography",
+              link: "/portfolio/photography",
             },
             {
               title: "Videography",
               src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&auto=format",
               id: "videography",
+              link: "/portfolio/videography",
             },
             {
               title: "Graphic Design",
               src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop&auto=format",
               id: "graphic-design",
+              link: "/portfolio/graphic-design",
             },
             {
               title: "Web & UI/UX Design",
               src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=800&fit=crop&auto=format",
               id: "web-ui-ux-design",
+              link: "/portfolio/web-ui-ux",
             },
             {
               title: "Social Media & Digital Marketing",
               src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=800&fit=crop&auto=format",
               id: "social-media-digital-marketing",
+              link: "/portfolio/social-media",
             },
             {
               title: "Branding",
               src: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=1200&h=800&fit=crop&auto=format",
               id: "branding",
+              link: "/portfolio/branding",
             },
           ]} />
         </div>

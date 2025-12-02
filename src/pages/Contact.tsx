@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -62,7 +62,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen relative bg-neutral-950">
-      <BackgroundBeams />
+      <BackgroundRippleEffect />
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">

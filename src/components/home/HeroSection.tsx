@@ -51,11 +51,11 @@ export const HeroSection = () => {
             <HoverBorderGradient
               containerClassName="rounded-full"
               as="div"
-              className="bg-accent hover:bg-accent/90 text-white font-medium text-lg px-12 py-6 glow-effect rounded-full"
+              className="bg-accent hover:bg-accent/60 hover:brightness-75 text-white font-medium text-lg px-12 py-6 glow-effect rounded-full transition-all duration-300"
             >
             <Button
               size="lg"
-                className="bg-transparent hover:bg-transparent text-white border-0 font-medium text-lg px-0 py-0 h-auto shadow-none"
+                className="bg-transparent hover:bg-transparent text-white hover:text-white border-0 font-medium text-lg px-0 py-0 h-auto shadow-none transition-colors duration-300"
             >
               Explore Our Work
             </Button>

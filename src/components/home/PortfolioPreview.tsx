@@ -74,7 +74,7 @@ export const PortfolioPreview = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="cinematic-section bg-gradient-to-b from-muted/20 to-background py-20">
+    <section ref={ref} className="cinematic-section bg-gradient-to-b from-muted/20 to-background py-8">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

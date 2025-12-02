@@ -19,7 +19,7 @@ export const AboutSection = () => {
           >
             <div className="w-16 h-1 bg-accent" />
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">
-              A modern creative studio shaping visuals that move people.
+              A One Stop Creative Hub
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               We are VisualVerse — a full-service creative media agency dedicated to crafting 

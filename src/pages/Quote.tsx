@@ -4,7 +4,8 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
+import { FileUpload } from "@/components/ui/file-upload";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -19,12 +20,13 @@ const Quote = () => {
     timeline: "",
     description: "",
   });
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Quote request submitted!",
-      description: "We'll review your request and get back to you within 24 hours.",
+      description: `We'll review your request and get back to you within 24 hours.${uploadedFiles.length > 0 ? ` ${uploadedFiles.length} file(s) attached.` : ""}`,
     });
     setFormData({
       name: "",
@@ -35,6 +37,11 @@ const Quote = () => {
       timeline: "",
       description: "",
     });
+    setUploadedFiles([]);
+  };
+
+  const handleFileUpload = (files: File[]) => {
+    setUploadedFiles((prevFiles) => [...prevFiles, ...files]);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -47,7 +54,7 @@ const Quote = () => {
 
   return (
     <div className="min-h-screen relative bg-neutral-950">
-      <BackgroundBeams />
+      <BackgroundRippleEffect />
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -153,10 +160,10 @@ const Quote = () => {
                         <SelectValue placeholder="Select budget" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="5k">$5,000 - $10,000</SelectItem>
-                        <SelectItem value="10k">$10,000 - $25,000</SelectItem>
-                        <SelectItem value="25k">$25,000 - $50,000</SelectItem>
-                        <SelectItem value="50k">$50,000+</SelectItem>
+                        <SelectItem value="5k">$500 - $1,000</SelectItem>
+                        <SelectItem value="10k">$1,000 - $2,000</SelectItem>
+                        <SelectItem value="25k">$2,000 - $5,000</SelectItem>
+                        <SelectItem value="50k">$5,000+</SelectItem>
                         <SelectItem value="flexible">Flexible</SelectItem>
                       </SelectContent>
                     </Select>
@@ -195,6 +202,19 @@ const Quote = () => {
                 </div>
               </div>
 
+              {/* File Upload Section */}
+              <div className="space-y-6 pt-6 border-t border-neutral-800">
+                <div>
+                  <h2 className="text-2xl font-heading font-bold text-white mb-2">Attach Files (Optional)</h2>
+                  <p className="text-sm text-neutral-400 mb-4">
+                    Share your logo files, brand books, reference materials, or any other relevant files to help us better understand your project.
+                  </p>
+                  <div className="w-full border border-dashed border-neutral-700 bg-neutral-900/50 rounded-lg">
+                    <FileUpload onChange={handleFileUpload} maxSize={100 * 1024 * 1024} />
+                  </div>
+                </div>
+              </div>
+
               <HoverBorderGradient
                 containerClassName="rounded-full w-full"
                 as="div"
@@ -225,27 +245,40 @@ const Quote = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-3" />
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-3 text-white">
-              Why Choose VisualVerse?
+              Why Choose Us?
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Expert Team",
-                description: "Award-winning creatives with years of industry experience",
+                title: "Story-Led Creativity",
+                description: "We don't just design or shoot — we craft visuals that connect, inspire, and make people feel something.",
               },
               {
                 title: "Tailored Solutions",
                 description: "Custom strategies designed specifically for your unique needs",
               },
               {
-                title: "Proven Results",
-                description: "150+ successful projects delivering measurable impact",
+                title: "Quality",
+                description: "Every project is handled with care, originality, and attention to detail so your brand always looks its best.",
+              },
+
+              {
+                title: "A One-Stop Creative Hub",
+                description: "We offer an all-in-one solution to elevate your brand.",
+              },
+              {
+                title: "Client-Centric Approach",
+                description: "Your vision is our priority. We listen, understand your goals, and shape our work around what matters most to you.",
+              },
+              {
+                title: "Timely Delivery, Every Time",
+                description: "We respect deadlines without compromising on quality. Expect efficiency, professionalism, and results that exceed expectations.",
               },
             ].map((item, index) => (
               <motion.div

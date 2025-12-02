@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { LinkPreview } from "@/components/ui/link-preview";
+import { FloatingParticles } from "@/components/ui/floating-particles";
 
 const services = [
   { number: "01", title: "Photography", description: "Visual storytelling", portfolioId: "photography" },
@@ -17,8 +18,9 @@ export const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-200px" });
 
   return (
-    <section ref={ref} className="cinematic-section bg-background">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 py-32">
+    <section ref={ref} className="cinematic-section bg-background relative">
+      <FloatingParticles />
+      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16 lg:px-24 py-32">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

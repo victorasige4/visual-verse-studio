@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { FloatingParticles } from "@/components/ui/floating-particles";
 
 const About = () => {
   const missionRef = useRef(null);
@@ -28,7 +29,7 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -50,8 +51,9 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section ref={missionRef} className="cinematic-section">
-        <div className="max-w-6xl mx-auto">
+      <section ref={missionRef} className="cinematic-section relative">
+        <FloatingParticles />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
@@ -63,9 +65,9 @@ const About = () => {
             </h2>
             <div className="w-24 h-1 bg-accent mx-auto" />
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              To create visual narratives that transcend the ordinary. We believe 
-              in the power of imagery to inspire, connect, and transform. Every 
-              project is an opportunity to craft something unforgettable.
+            To create work that doesn't just look beautiful, but leaves a lasting impression. 
+            Every project is an opportunity to push boundaries and redefine 
+            what's possible in creative media.
             </p>
           </motion.div>
         </div>
@@ -88,13 +90,14 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  Founded in 2018, VisualVerse emerged from a simple belief: 
-                  that visual storytelling should be both art and impact.
+                At Visual Verse, we believe that every brand, every event, and every moment 
+                has a story waiting to be told. We are a creative media powerhouse 
+                dedicated to bringing stories to life, one frame at a time.
                 </p>
                 <p>
-                  What started as a small creative studio has evolved into a 
-                  full-service agency, working with brands across the globe to 
-                  create campaigns that resonate and inspire.
+                From stunning visuals to engaging digital experiences, we craft content that 
+                doesn't just look good—it resonates, captivates, and inspires. Whatever service you need, 
+                we turn ideas into impactful visual narratives that leave a lasting impression.
                 </p>
                 <p>
                   Today, we continue to push creative boundaries, blending 
@@ -123,8 +126,9 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section ref={valuesRef} className="cinematic-section">
-        <div className="max-w-7xl mx-auto">
+      <section ref={valuesRef} className="cinematic-section relative">
+        <FloatingParticles />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
