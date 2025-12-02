@@ -53,9 +53,9 @@ const Contact = () => {
   ];
 
   const socials = [
-    { icon: <Instagram size={24} />, name: "Instagram", url: "#" },
-    { icon: <Linkedin size={24} />, name: "LinkedIn", url: "#" },
-    { icon: <Facebook size={24} />, name: "Facebook", url: "#" },
+    { icon: <Instagram size={24} />, name: "Instagram", url: "https://www.instagram.com/visualverse.creations/" },
+    { icon: <Linkedin size={24} />, name: "LinkedIn", url: "https://www.linkedin.com/company/visualverse-creations" },
+    { icon: <Facebook size={24} />, name: "Facebook", url: "https://www.facebook.com/profile.php?id=61584634318128" },
     { icon: <Youtube size={24} />, name: "YouTube", url: "#" },
     { icon: <Tiktok size={24} />, name: "Tiktok", url: "#" },
   ];

@@ -30,10 +30,10 @@ const Tiktok = ({ size }: { size: number }) => (
 );
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/visualverse-creations", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/visualverse.creations/", label: "Instagram" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61584634318128", label: "Facebook" },
   { icon: Tiktok, href: "https://tiktok.com", label: "TikTok" },
 ];
 

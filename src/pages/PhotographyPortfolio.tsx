@@ -109,7 +109,7 @@ const photographyData = [
   {
     category: "Photography",
     title: "Weddings",
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=800&fit=crop&auto=format",
+    src: "/images/Weddings.jpg",
     content: (
       <DummyContent
         title="Wedding Photography"
@@ -120,7 +120,7 @@ const photographyData = [
   {
     category: "Photography",
     title: "Graduations",
-    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop&auto=format",
+    src: "/images/Graduations.jpg",
     content: (
       <DummyContent
         title="Graduation Photography"
@@ -153,7 +153,7 @@ const photographyData = [
   {
     category: "Photography",
     title: "Corporate Events",
-    src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&h=800&fit=crop&auto=format",
+    src: "/images/Corporate Events.jpg",
     content: (
       <DummyContent
         title="Corporate Event Photography"
