@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Button } from "@/components/ui/button";
+import { InfiniteWorkShowcase } from "@/components/ui/infinite-work-showcase";
 
 const BrandingPortfolio = () => {
   const cards = brandingData.map((card, index) => (
@@ -76,32 +77,11 @@ const BrandingPortfolio = () => {
   );
 };
 
-const DummyContent = ({ title, description }: { title: string; description: string }) => {
+const WorkShowcase = ({ works }: { works: Array<{ image: string; title: string; description?: string }> }) => {
   return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-muted/30 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-muted-foreground text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-foreground">
-                {title}
-              </span>{" "}
-              {description}
-            </p>
-            <img
-              src={`https://images.unsplash.com/photo-${1558655146 + index}-364adaf1fcc9?w=1200&h=800&fit=crop&auto=format`}
-              alt={`${title} example`}
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl mt-8"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        );
-      })}
-    </>
+    <div className="py-4">
+      <InfiniteWorkShowcase items={works} direction="left" speed="slow" />
+    </div>
   );
 };
 
@@ -111,9 +91,17 @@ const brandingData = [
     title: "Logos & Branding",
     src: "https://images.unsplash.com/photo-1561070791-36c11767b26a?w=1200&h=800&fit=crop&auto=format",
     content: (
-      <DummyContent
-        title="Logos & Branding"
-        description="Creating distinctive logos and branding that make you memorable. We design complete visual systems including logos, colors, typography, and brand assets."
+      <WorkShowcase
+        works={[
+          { image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=1200&fit=crop", title: "Modern Logo", description: "Clean brand mark" },
+          { image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=1200&fit=crop", title: "Brand Identity", description: "Complete system" },
+          { image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&h=1200&fit=crop", title: "Visual Identity", description: "Color & typography" },
+          { image: "https://images.unsplash.com/photo-1542744095-291d1f67b221?w=800&h=1200&fit=crop", title: "Logo Variations", description: "Versatile designs" },
+          { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=1200&fit=crop", title: "Brand Mark", description: "Icon design" },
+          { image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?w=800&h=1200&fit=crop", title: "Emblem Design", description: "Classic style" },
+          { image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=1200&fit=crop", title: "Corporate Identity", description: "Professional branding" },
+          { image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=1200&fit=crop", title: "Brand Assets", description: "Complete package" },
+        ]}
       />
     ),
   },
@@ -122,9 +110,17 @@ const brandingData = [
     title: "Brand Guidelines",
     src: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&h=800&fit=crop&auto=format",
     content: (
-      <DummyContent
-        title="Brand Guidelines"
-        description="Documenting your brand standards for consistency. We create comprehensive brand guidelines that ensure your brand is applied correctly across all touchpoints."
+      <WorkShowcase
+        works={[
+          { image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=1200&fit=crop", title: "Brand Book", description: "Complete standards" },
+          { image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=1200&fit=crop", title: "Style Guide", description: "Visual rules" },
+          { image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=1200&fit=crop", title: "Color Palette", description: "Brand colors" },
+          { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=1200&fit=crop", title: "Typography", description: "Font system" },
+          { image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&h=1200&fit=crop", title: "Logo Usage", description: "Application rules" },
+          { image: "https://images.unsplash.com/photo-1542744095-291d1f67b221?w=800&h=1200&fit=crop", title: "Brand Patterns", description: "Design elements" },
+          { image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=1200&fit=crop", title: "Brand Voice", description: "Tone & messaging" },
+          { image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&h=1200&fit=crop", title: "Application Examples", description: "Real-world usage" },
+        ]}
       />
     ),
   },

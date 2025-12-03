@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Button } from "@/components/ui/button";
+import { InfiniteWorkShowcase } from "@/components/ui/infinite-work-showcase";
 
 const SocialMediaPortfolio = () => {
   const cards = socialMediaData.map((card, index) => (
@@ -76,32 +77,11 @@ const SocialMediaPortfolio = () => {
   );
 };
 
-const DummyContent = ({ title, description }: { title: string; description: string }) => {
+const WorkShowcase = ({ works }: { works: Array<{ image: string; title: string; description?: string }> }) => {
   return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-muted/30 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-muted-foreground text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-foreground">
-                {title}
-              </span>{" "}
-              {description}
-            </p>
-            <img
-              src={`https://images.unsplash.com/photo-${1611162617474 + index}-5b21e879e113?w=1200&h=800&fit=crop&auto=format`}
-              alt={`${title} example`}
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl mt-8"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        );
-      })}
-    </>
+    <div className="py-4">
+      <InfiniteWorkShowcase items={works} direction="right" speed="slow" />
+    </div>
   );
 };
 
@@ -111,9 +91,17 @@ const socialMediaData = [
     title: "Content Strategy",
     src: "/images/social media post.jpg",
     content: (
-      <DummyContent
-        title="Social Media Posts"
-        description="Creating engaging social media posts that resonate with your audience. We create content that aligns with your brand goals and resonates with your target market."
+      <WorkShowcase
+        works={[
+          { image: "/images/social media post.jpg", title: "Instagram Feed", description: "Cohesive brand posts" },
+          { image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=1200&fit=crop", title: "Story Design", description: "Interactive content" },
+          { image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1200&fit=crop", title: "Carousel Posts", description: "Engaging series" },
+          { image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&h=1200&fit=crop", title: "Promo Graphics", description: "Sales content" },
+          { image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=1200&fit=crop", title: "Quote Posts", description: "Inspirational content" },
+          { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=1200&fit=crop", title: "Product Posts", description: "Showcase items" },
+          { image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&h=1200&fit=crop", title: "Announcement", description: "News graphics" },
+          { image: "https://images.unsplash.com/photo-1600172454132-e67be7fec5c5?w=800&h=1200&fit=crop", title: "Event Promo", description: "Digital campaigns" },
+        ]}
       />
     ),
   },

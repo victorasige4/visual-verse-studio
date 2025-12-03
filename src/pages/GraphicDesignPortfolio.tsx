@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Button } from "@/components/ui/button";
+import { InfiniteWorkShowcase } from "@/components/ui/infinite-work-showcase";
 
 const GraphicDesignPortfolio = () => {
   const cards = graphicDesignData.map((card, index) => (
@@ -76,32 +77,11 @@ const GraphicDesignPortfolio = () => {
   );
 };
 
-const DummyContent = ({ title, description }: { title: string; description: string }) => {
+const WorkShowcase = ({ works }: { works: Array<{ image: string; title: string; description?: string }> }) => {
   return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-muted/30 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-muted-foreground text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-foreground">
-                {title}
-              </span>{" "}
-              {description}
-            </p>
-            <img
-              src={`https://images.unsplash.com/photo-${1561070791 + index}-2526d30994b5?w=1200&h=800&fit=crop&auto=format`}
-              alt={`${title} example`}
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl mt-8"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        );
-      })}
-    </>
+    <div className="py-4">
+      <InfiniteWorkShowcase items={works} direction="left" speed="slow" />
+    </div>
   );
 };
 
@@ -111,9 +91,17 @@ const graphicDesignData = [
     title: "Logo Design",
     src: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=800&fit=crop&auto=format",
     content: (
-      <DummyContent
-        title="Logo Design"
-        description="Creating memorable logos that define your brand identity. We design unique, versatile logos that work across all mediums and stand the test of time."
+      <WorkShowcase
+        works={[
+          { image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=1200&fit=crop", title: "Modern Logo", description: "Clean brand identity" },
+          { image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=1200&fit=crop", title: "Minimalist Design", description: "Simple elegance" },
+          { image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&h=1200&fit=crop", title: "Brand Identity", description: "Complete system" },
+          { image: "https://images.unsplash.com/photo-1542744095-291d1f67b221?w=800&h=1200&fit=crop", title: "Corporate Logo", description: "Professional mark" },
+          { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=1200&fit=crop", title: "Startup Branding", description: "Fresh identity" },
+          { image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&h=1200&fit=crop", title: "Logo Variations", description: "Versatile designs" },
+          { image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?w=800&h=1200&fit=crop", title: "Emblem Design", description: "Classic style" },
+          { image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=1200&fit=crop", title: "Icon System", description: "Complete set" },
+        ]}
       />
     ),
   },
@@ -122,9 +110,17 @@ const graphicDesignData = [
     title: "Posters & Flyers",
     src: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1200&h=800&fit=crop&auto=format",
     content: (
-      <DummyContent
-        title="Posters & Flyers"
-        description="Creating posters and flyers that capture attention. We design eye-catching, informative posters and flyers that leave a lasting impression."
+      <WorkShowcase
+        works={[
+          { image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&h=1200&fit=crop", title: "Event Poster", description: "Bold design" },
+          { image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=1200&fit=crop", title: "Promotional Flyer", description: "Eye-catching" },
+          { image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=1200&fit=crop", title: "Concert Poster", description: "Music event" },
+          { image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&h=1200&fit=crop", title: "Business Flyer", description: "Corporate promo" },
+          { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=1200&fit=crop", title: "Sale Poster", description: "Promotional design" },
+          { image: "https://images.unsplash.com/photo-1600172454132-e67be7fec5c5?w=800&h=1200&fit=crop", title: "Festival Flyer", description: "Vibrant colors" },
+          { image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=1200&fit=crop", title: "Grand Opening", description: "Launch promo" },
+          { image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=1200&fit=crop", title: "Exhibition Poster", description: "Art showcase" },
+        ]}
       />
     ),
   },
@@ -133,9 +129,17 @@ const graphicDesignData = [
     title: "Print Materials",
     src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
     content: (
-      <DummyContent
-        title="Print Design"
-        description="Designing impactful print materials that capture attention. From brochures to business cards, we create print designs that leave a lasting impression."
+      <WorkShowcase
+        works={[
+          { image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=1200&fit=crop", title: "Business Cards", description: "Professional identity" },
+          { image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=1200&fit=crop", title: "Brochure Design", description: "Informative layouts" },
+          { image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=1200&fit=crop", title: "Catalog Design", description: "Product showcase" },
+          { image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&h=1200&fit=crop", title: "Magazine Layout", description: "Editorial design" },
+          { image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=1200&fit=crop", title: "Letterhead", description: "Brand stationery" },
+          { image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=1200&fit=crop", title: "Annual Report", description: "Corporate document" },
+          { image: "https://images.unsplash.com/photo-1542744095-291d1f67b221?w=800&h=1200&fit=crop", title: "Packaging Insert", description: "Product info" },
+          { image: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&h=1200&fit=crop", title: "Menu Design", description: "Restaurant brand" },
+        ]}
       />
     ),
   },
@@ -144,9 +148,17 @@ const graphicDesignData = [
     title: "Social Media Graphics",
     src: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=800&fit=crop&auto=format",
     content: (
-      <DummyContent
-        title="Social Media Design"
-        description="Creating scroll-stopping social media graphics. We design engaging visuals optimized for each platform to maximize your social media impact."
+      <WorkShowcase
+        works={[
+          { image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=1200&fit=crop", title: "Instagram Posts", description: "Engaging visuals" },
+          { image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1200&fit=crop", title: "Social Campaign", description: "Platform optimized" },
+          { image: "/images/social media post.jpg", title: "Content Series", description: "Brand consistency" },
+          { image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&h=1200&fit=crop", title: "Story Templates", description: "Interactive design" },
+          { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=1200&fit=crop", title: "Feed Layout", description: "Grid aesthetics" },
+          { image: "https://images.unsplash.com/photo-1600172454132-e67be7fec5c5?w=800&h=1200&fit=crop", title: "Promo Graphics", description: "Sales posts" },
+          { image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&h=1200&fit=crop", title: "Announcement", description: "News graphics" },
+          { image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1200&fit=crop", title: "Quote Graphics", description: "Inspirational posts" },
+        ]}
       />
     ),
   },
