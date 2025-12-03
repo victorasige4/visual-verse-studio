@@ -95,6 +95,8 @@ const DummyContent = ({ title, description }: { title: string; description: stri
               src={`https://images.unsplash.com/photo-${1561070791 + index}-2526d30994b5?w=1200&h=800&fit=crop&auto=format`}
               alt={`${title} example`}
               className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl mt-8"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         );

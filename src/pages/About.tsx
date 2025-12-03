@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { FloatingParticles } from "@/components/ui/floating-particles";
 import { AnimatedCard } from "@/components/ui/animated-card";
+import { PixelatedCanvas } from "@/components/ui/pixelated-canvas";
 
 const About = () => {
   const missionRef = useRef(null);
@@ -110,11 +111,28 @@ const About = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-square rounded-lg overflow-hidden shadow-2xl">
-                <img 
-                  src="/images/photographer.jpg" 
-                  alt="Professional photographer with camera" 
-                  className="w-full h-full object-cover"
+              <div className="aspect-square rounded-lg overflow-hidden shadow-2xl relative">
+                <PixelatedCanvas
+                  src="/images/photographer.jpg"
+                  width={600}
+                  height={600}
+                  cellSize={3}
+                  dotScale={0.9}
+                  shape="square"
+                  backgroundColor="hsl(var(--background))"
+                  dropoutStrength={0.35}
+                  interactive
+                  distortionStrength={5}
+                  distortionRadius={120}
+                  distortionMode="swirl"
+                  followSpeed={0.18}
+                  jitterStrength={6}
+                  jitterSpeed={3.5}
+                  sampleAverage
+                  tintColor="hsl(var(--accent))"
+                  tintStrength={0.12}
+                  className="w-full h-full rounded-lg"
+                  objectFit="cover"
                 />
               </div>
               <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-accent/10 rounded-lg -z-10" />

@@ -157,7 +157,7 @@ export const Carousel = ({ items, initialScroll = 0, hideArrows = false, disable
   );
 };
 
-export const Card = ({
+export const Card = React.memo(({
   card,
   index,
   layout = false,
@@ -274,7 +274,7 @@ export const Card = ({
       </motion.button>
     </>
   );
-};
+});
 
 export const BlurImage = ({
   src,

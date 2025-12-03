@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 
 interface AnimatedCardProps {
   title: string;
@@ -10,7 +10,7 @@ interface AnimatedCardProps {
   children?: ReactNode;
 }
 
-export function AnimatedCard({
+export const AnimatedCard = memo(function AnimatedCard({
   title,
   description,
   staticImage,
@@ -25,7 +25,8 @@ export function AnimatedCard({
           "bg-cover bg-center",
           // Preload hover image by setting it in a pseudo-element
           "before:fixed before:inset-0 before:opacity-0 before:z-[-1]",
-          "hover:after:content-[''] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-50",
+          "after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black/80 after:via-black/40 after:to-transparent after:z-10",
+          "hover:after:from-black/90 hover:after:via-black/60",
           "hover:shadow-2xl hover:shadow-accent/20",
           "transition-all duration-500",
           className
@@ -41,15 +42,15 @@ export function AnimatedCard({
         }}
       >
         <div className="text relative z-50">
-          <h3 className="font-bold text-2xl md:text-3xl text-white relative mb-4 transform transition-transform duration-300 group-hover:translate-x-1">
+          <h3 className="font-bold text-2xl md:text-3xl text-white relative mb-4 transform transition-transform duration-300 group-hover:translate-x-1 drop-shadow-lg">
             {title}
           </h3>
-          <p className="font-normal text-base md:text-lg text-gray-50 relative transform transition-transform duration-300 group-hover:translate-x-1">
+          <p className="font-normal text-base md:text-lg text-gray-50 relative transform transition-transform duration-300 group-hover:translate-x-1 drop-shadow-md">
             {description}
           </p>
         </div>
       </div>
     </div>
   );
-}
+});
 

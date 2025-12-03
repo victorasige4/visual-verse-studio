@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   Navbar as ResizableNavbar,
@@ -14,7 +14,7 @@ import {
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { Button } from "./ui/button";
 
-export const Navbar = () => {
+export const Navbar = memo(() => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -96,4 +96,4 @@ export const Navbar = () => {
       </MobileNav>
     </ResizableNavbar>
   );
-};
+});

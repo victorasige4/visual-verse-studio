@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { PixelatedCanvas } from "../ui/pixelated-canvas";
 
 export const AboutSection = () => {
   const ref = useRef(null);
@@ -40,11 +41,28 @@ export const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-square rounded-lg overflow-hidden shadow-2xl">
-              <img 
-                src="/images/photographer.jpg" 
-                alt="Professional photographer with camera" 
-                className="w-full h-full object-cover"
+            <div className="aspect-square rounded-lg overflow-hidden shadow-2xl relative">
+              <PixelatedCanvas
+                src="/images/photographer.jpg"
+                width={500}
+                height={500}
+                cellSize={4}
+                dotScale={0.85}
+                shape="square"
+                backgroundColor="hsl(var(--background))"
+                dropoutStrength={0.3}
+                interactive
+                distortionStrength={4}
+                distortionRadius={100}
+                distortionMode="swirl"
+                followSpeed={0.15}
+                jitterStrength={5}
+                jitterSpeed={3}
+                sampleAverage
+                tintColor="hsl(var(--accent))"
+                tintStrength={0.15}
+                className="w-full h-full rounded-lg"
+                objectFit="cover"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-lg -z-10" />
