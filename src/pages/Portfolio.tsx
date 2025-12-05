@@ -40,10 +40,10 @@ const Portfolio = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-4" />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight">
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight px-2 md:px-0">
               Our <span className="text-gradient">Portfolio</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed px-2 md:px-0">
               A collection of stories we've helped bring to life
             </p>
           </motion.div>
@@ -51,8 +51,8 @@ const Portfolio = () => {
       </section>
 
       {/* Services Focus Cards */}
-      <section ref={galleryRef} className="cinematic-section py-8">
-        <div className="max-w-7xl mx-auto px-6">
+      <section ref={galleryRef} className="cinematic-section py-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isGalleryInView ? { opacity: 1, y: 0 } : {}}
@@ -104,9 +104,9 @@ const Portfolio = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-100 items-center justify-center text-center">
+      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-16 items-center justify-center text-center">
             {[
               { number: "150+", label: "Projects Completed" },
               { number: "50+", label: "Happy Clients" },
@@ -130,8 +130,8 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cinematic-section">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="cinematic-section overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -139,10 +139,10 @@ const Portfolio = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight px-4 md:px-0">
               Want to see your project here?
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg md:text-xl text-muted-foreground px-4 md:px-0">
               Let's create something extraordinary together
             </p>
             <div className="flex justify-center">

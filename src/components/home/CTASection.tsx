@@ -47,31 +47,31 @@ export const CTASection = () => {
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
             Ready to transform your vision into a cinematic reality? Let's start a conversation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/quote">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/quote" className="w-full sm:w-auto flex justify-center">
               <HoverBorderGradient
                 containerClassName="rounded-full"
                 as="div"
-                className="bg-soft-aqua text-primary hover:bg-midnight-cyan/90 font-medium text-lg px-12 py-6"
+                className="bg-soft-aqua text-primary hover:bg-midnight-cyan/90 font-medium text-base md:text-lg px-6 py-3 md:px-12 md:py-6"
               >
                 <Button
                   size="lg"
-                  className="bg-transparent hover:bg-transparent text-primary border-0 font-medium text-lg px-0 py-0 h-auto"
+                  className="bg-transparent hover:bg-transparent text-primary border-0 font-medium text-base md:text-lg px-0 py-0 h-auto"
                 >
                   Start a Project
                 </Button>
               </HoverBorderGradient>
             </Link>
-            <Link to="/contact">
+            <Link to="/contact" className="w-full sm:w-auto flex justify-center">
               <HoverBorderGradient
                 containerClassName="rounded-full"
                 as="div"
-                className="bg-midnight-cyan text-soft-aqua hover:bg-soft-aqua hover:text-primary font-medium text-lg px-12 py-6"
+                className="bg-midnight-cyan text-soft-aqua hover:bg-soft-aqua hover:text-primary font-medium text-base md:text-lg px-6 py-3 md:px-12 md:py-6"
               >
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-transparent hover:bg-transparent text-soft-aqua border-0 font-medium text-lg px-0 py-0 h-auto"
+                  className="bg-transparent hover:bg-transparent text-soft-aqua border-0 font-medium text-base md:text-lg px-0 py-0 h-auto"
                 >
                   Get in Touch
                 </Button>

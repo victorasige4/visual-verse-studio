@@ -102,7 +102,10 @@ const WorkShowcase = ({ works }: { works: Array<{ image: string; title: string; 
     <div className="w-full">
       <div className="mb-6">
         <h3 className="text-2xl font-heading font-bold text-foreground mb-2">Our Work</h3>
-        <p className="text-muted-foreground">Hover over images to pause the carousel</p>
+        <p className="text-muted-foreground">
+          <span className="md:hidden">Press the screen to pause the carousel</span>
+          <span className="hidden md:inline">Hover over images to pause the carousel</span>
+        </p>
       </div>
       <InfiniteWorkShowcase items={works} direction="left" speed="slow" />
     </div>

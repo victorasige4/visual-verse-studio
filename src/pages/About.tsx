@@ -46,10 +46,10 @@ const About = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-4" />
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight">
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 tracking-tight px-2 md:px-0">
               About <span className="text-gradient">VisualVerse</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed px-2 md:px-0">
               We are a collective of storytellers, designers, and visionaries 
               crafting experiences that move people.
             </p>
@@ -58,20 +58,20 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section ref={missionRef} className="cinematic-section relative">
+      <section ref={missionRef} className="cinematic-section relative overflow-hidden">
         <FloatingParticles />
-        <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="text-center space-y-4"
           >
-            <h2 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
+            <h2 className="text-3xl md:text-6xl font-heading font-bold leading-tight px-4 md:px-0">
               Our Mission
             </h2>
             <div className="w-24 h-1 bg-accent mx-auto" />
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4 md:px-0">
             To create work that doesn't just look beautiful, but leaves a lasting impression. 
             Every project is an opportunity to push boundaries and redefine 
             what's possible in creative media.
@@ -81,42 +81,44 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center justify-center">
+            {/* Text Content - Centered on mobile */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-4"
+              className="space-y-4 text-center w-full max-w-full md:text-left order-2 md:order-1"
             >
-              <div className="w-16 h-1 bg-accent" />
-              <h2 className="text-4xl md:text-5xl font-heading font-bold">
+              <div className="w-16 h-1 bg-accent mx-auto md:mx-0" />
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold break-words">
                 Born from Passion
               </h2>
-              <div className="space-y-4 text-lg text-muted-foreground">
-                <p>
-                At Visual Verse, we believe that every brand, every event, and every moment 
-                has a story waiting to be told. We are a creative media powerhouse 
-                dedicated to bringing stories to life, one frame at a time.
+              <div className="space-y-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p className="break-words">
+                  At Visual Verse, we believe that every brand, every event, and every moment 
+                  has a story waiting to be told. We are a creative media powerhouse 
+                  dedicated to bringing stories to life, one frame at a time.
                 </p>
-                <p>
-                From stunning visuals to engaging digital experiences, we craft content that 
-                doesn't just look good—it resonates, captivates, and inspires. Whatever service you need, 
-                we turn ideas into impactful visual narratives that leave a lasting impression.
+                <p className="break-words">
+                  From stunning visuals to engaging digital experiences, we craft content that 
+                  doesn't just look good—it resonates, captivates, and inspires. Whatever service you need, 
+                  we turn ideas into impactful visual narratives that leave a lasting impression.
                 </p>
               </div>
             </motion.div>
 
+            {/* Image - Centered on mobile */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative w-full flex justify-center items-center order-1 md:order-2"
             >
-              <div className="aspect-square rounded-lg overflow-hidden shadow-2xl relative">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-2xl relative w-full max-w-[90vw] sm:max-w-md md:max-w-full">
                 <PixelatedCanvas
                   src="/images/photographer.jpg"
                   width={600}
@@ -140,17 +142,17 @@ const About = () => {
                   objectFit="cover"
                 />
               </div>
-              <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-accent/10 rounded-lg -z-10" />
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-primary/10 rounded-lg -z-10" />
+              <div className="hidden md:block absolute -bottom-8 -right-8 w-40 h-40 bg-accent/10 rounded-lg -z-10" />
+              <div className="hidden md:block absolute -top-8 -left-8 w-32 h-32 bg-primary/10 rounded-lg -z-10" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section ref={valuesRef} className="cinematic-section relative">
+      <section ref={valuesRef} className="cinematic-section relative overflow-hidden">
         <FloatingParticles />
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
@@ -158,25 +160,25 @@ const About = () => {
             className="text-center mb-8"
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-3" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold mb-3 px-4 md:px-0">
               Our Values
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 md:px-0">
               The principles that guide every project we undertake
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 px-4 md:px-0">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="p-8 rounded-lg bg-gradient-to-br from-muted/30 to-muted/10 hover:from-muted/50 hover:to-muted/20 transition-all duration-500"
+                className="p-6 md:p-8 rounded-lg bg-gradient-to-br from-muted/30 to-muted/10 hover:from-muted/50 hover:to-muted/20 transition-all duration-500 text-center md:text-left"
               >
-                <h3 className="text-2xl font-heading font-bold mb-2">{value.title}</h3>
-                <p className="text-lg text-muted-foreground">{value.description}</p>
+                <h3 className="text-xl md:text-2xl font-heading font-bold mb-2">{value.title}</h3>
+                <p className="text-base md:text-lg text-muted-foreground">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -184,8 +186,8 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section ref={teamRef} className="cinematic-section bg-gradient-to-b from-background to-muted/20">
-        <div className="max-w-7xl mx-auto">
+      <section ref={teamRef} className="cinematic-section bg-gradient-to-b from-background to-muted/20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
@@ -193,10 +195,10 @@ const About = () => {
             className="text-center mb-8"
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-3" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold mb-3 px-4 md:px-0">
               Meet the Team
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 md:px-0">
               The creative minds behind VisualVerse
             </p>
           </motion.div>
@@ -227,9 +229,9 @@ const About = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background relative">
+      <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
         <FloatingParticles />
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -238,10 +240,10 @@ const About = () => {
             className="text-center mb-12"
           >
             <div className="w-16 h-1 bg-accent mx-auto mb-3" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold mb-3 px-4 md:px-0">
               Why Choose Us?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 md:px-0">
               What sets VisualVerse apart from the rest
             </p>
           </motion.div>
