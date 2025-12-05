@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FocusCards } from "@/components/ui/focus-cards";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Button } from "@/components/ui/button";
+import { Spotlight } from "@/components/ui/spotlight";
 
 const Portfolio = () => {
   const galleryRef = useRef(null);
@@ -27,6 +28,10 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+        <Spotlight
+          className="-top-40 left-0 md:-top-20 md:left-60"
+          fill="hsl(var(--accent))"
+        />
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div

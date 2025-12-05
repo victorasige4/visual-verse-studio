@@ -40,9 +40,7 @@ export const FileUpload = ({
     const validFiles = newFiles.filter((file) => file.size <= maxSize);
     const invalidFiles = newFiles.filter((file) => file.size > maxSize);
     
-    if (invalidFiles.length > 0) {
-      console.warn(`Some files exceed the maximum size of ${(maxSize / (1024 * 1024)).toFixed(0)}MB`);
-    }
+    // Skip invalid files silently
 
     if (validFiles.length > 0) {
       setFiles((prevFiles) => [...prevFiles, ...validFiles]);
@@ -59,9 +57,8 @@ export const FileUpload = ({
     noClick: true,
     maxSize: maxSize,
     onDrop: handleFileChange,
-    onDropRejected: (errors) => {
-      console.log(errors);
-      // You can show a toast here if needed
+    onDropRejected: () => {
+      // Files rejected silently
     },
   });
 

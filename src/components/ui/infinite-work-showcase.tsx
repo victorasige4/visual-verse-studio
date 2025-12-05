@@ -78,11 +78,6 @@ export const InfiniteWorkShowcase = ({
     }
   };
 
-  // Debug: Log items
-  if (items.length === 0) {
-    console.warn("InfiniteWorkShowcase: No items provided");
-  }
-
   return (
     <div
       ref={containerRef}
@@ -117,7 +112,6 @@ export const InfiniteWorkShowcase = ({
                 loading={idx < 4 ? "eager" : "lazy"}
                 decoding="async"
                 onError={(e) => {
-                  console.error(`Failed to load image: ${item.image}`);
                   e.currentTarget.style.display = 'none';
                 }}
               />

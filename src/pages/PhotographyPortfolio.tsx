@@ -12,6 +12,24 @@ const PhotographyPortfolio = () => {
     <Card key={card.src} card={card} index={index} />
   ));
 
+  // Scroll to specific card based on hash
+  React.useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Trigger click after scroll
+          setTimeout(() => {
+            const button = element.querySelector('button');
+            if (button) button.click();
+          }, 500);
+        }
+      }, 500);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Back Button */}
@@ -96,6 +114,7 @@ const photographyData = [
     category: "Photography",
     title: "Weddings",
     src: "/images/Weddings.jpg",
+    id: "weddings",
     content: (
       <WorkShowcase
         works={[
@@ -115,6 +134,7 @@ const photographyData = [
     category: "Photography",
     title: "Graduations",
     src: "/images/Graduations.jpg",
+    id: "graduations",
     content: (
       <WorkShowcase
         works={[
@@ -172,6 +192,7 @@ const photographyData = [
     category: "Photography",
     title: "Corporate Events",
     src: "/images/Corporate Events.jpg",
+    id: "corporate-events",
     content: (
       <WorkShowcase
         works={[

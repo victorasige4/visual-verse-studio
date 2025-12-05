@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook, Youtube, CheckCircle2, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 // TikTok icon component (not available in lucide-react)
 const Tiktok = ({ size }: { size: number }) => (
@@ -25,25 +25,77 @@ const Tiktok = ({ size }: { size: number }) => (
 );
 
 const Contact = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+  const [alert, setAlert] = useState<{ type: "success" | "warning" | null; message: string }>({
+    type: null,
+    message: "",
+  });
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+    
+    // Validation
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      setAlert({
+        type: "warning",
+        message: "Please enter a valid name (at least 2 characters).",
+      });
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      setAlert({
+        type: "warning",
+        message: "Please enter a valid email address.",
+      });
+      return;
+    }
+
+    if (!formData.subject.trim() || formData.subject.trim().length < 3) {
+      setAlert({
+        type: "warning",
+        message: "Please enter a subject (at least 3 characters).",
+      });
+      return;
+    }
+
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      setAlert({
+        type: "warning",
+        message: "Please enter a message (at least 10 characters).",
+      });
+      return;
+    }
+
+    // Success
+    setAlert({
+      type: "success",
+      message: "Message sent successfully! We'll get back to you within 24 hours.",
     });
     setFormData({ name: "", email: "", subject: "", message: "" });
+    
+    // Clear alert after 5 seconds
+    setTimeout(() => {
+      setAlert({ type: null, message: "" });
+    }, 5000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear alert when user starts typing
+    if (alert.type) {
+      setAlert({ type: null, message: "" });
+    }
   };
 
   const contactInfo = [
@@ -99,6 +151,28 @@ const Contact = () => {
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Alert Messages */}
+                {alert.type && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Alert variant={alert.type}>
+                      {alert.type === "success" ? (
+                        <CheckCircle2 className="h-4 w-4" />
+                      ) : (
+                        <AlertTriangle className="h-4 w-4" />
+                      )}
+                      <AlertTitle>
+                        {alert.type === "success" ? "Success!" : "Warning!"}
+                      </AlertTitle>
+                      <AlertDescription>{alert.message}</AlertDescription>
+                    </Alert>
+                  </motion.div>
+                )}
+
                 <div>
                   <Input
                     name="name"

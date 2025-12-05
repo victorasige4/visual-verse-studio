@@ -26,6 +26,7 @@ type Card = {
   title: string;
   category: string;
   content: React.ReactNode;
+  id?: string;
 };
 
 export const CarouselContext = createContext<{
@@ -220,8 +221,9 @@ export const Card = React.memo(({
               className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-background p-4 font-sans md:p-10"
             >
               <button
-                className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-accent hover:bg-accent/90 transition-colors"
+                className="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-accent hover:bg-accent/90 transition-all duration-300 hover:scale-110 shadow-lg z-50"
                 onClick={handleClose}
+                aria-label="Close"
               >
                 <IconX className="h-6 w-6 text-white" />
               </button>
@@ -246,6 +248,7 @@ export const Card = React.memo(({
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
         disabled={disableClick}
+        id={card.id}
         className={cn(
           "relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[40rem] md:w-96 hover:scale-105 transition-transform duration-300",
           disableClick && "cursor-default"

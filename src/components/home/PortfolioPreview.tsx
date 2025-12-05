@@ -9,60 +9,64 @@ import { Cover } from "../ui/cover";
 
 const portfolioCards: ExpandableCard[] = [
   {
-    description: "Photography & Videography",
-    title: "Urban Lifestyle Series",
-    src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop",
+    description: "Photography",
+    title: "Graduation Photography",
+    src: "/images/Graduations.jpg",
     ctaText: "View Project",
-    ctaLink: "/portfolio",
+    ctaLink: "/portfolio/photography#graduations",
     content: () => {
       return (
         <p>
-          A cinematic visual storytelling project capturing the essence of urban living. 
-          This series combined photography and videography to create compelling narratives 
-          about city life. <br /> <br /> We produced a collection of stunning visuals that 
-          showcased the vibrancy and energy of metropolitan environments. The project included 
-          commercial photography, documentary-style video content, and social media assets. 
-          The series received widespread acclaim and was featured in several design publications.
+          Capturing the magic and emotion of your special moments with timeless elegance and 
+          artistic vision. We specialize in creating beautiful photography that tells 
+          your unique story through authentic moments and stunning compositions. <br /> <br /> 
+          From intimate ceremonies to grand celebrations, we preserve every precious detail—the 
+          stolen glances, joyful tears, heartfelt expressions, and jubilant celebrations. Our approach 
+          blends photojournalistic storytelling with artistic portraiture, ensuring your 
+          album becomes a treasured keepsake. We work discreetly to capture genuine emotions while 
+          creating breathtaking portraits you'll cherish forever.
         </p>
       );
     },
   },
   {
-    description: "Web & UI/UX Design",
-    title: "E-Commerce Platform Redesign",
-    src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+    description: "Photography",
+    title: "Corporate Event Photography",
+    src: "/images/Corporate Events.jpg",
     ctaText: "View Project",
-    ctaLink: "/portfolio",
+    ctaLink: "/portfolio/photography#corporate-events",
     content: () => {
       return (
         <p>
-          A complete redesign of a major e-commerce platform focusing on user experience 
-          and conversion optimization. The new design improved usability and accessibility 
-          while maintaining brand identity. <br /> <br /> We conducted extensive user 
-          research, created wireframes and prototypes, and implemented a responsive design 
-          system. The redesign resulted in a 40% increase in user engagement and a 25% 
-          boost in conversion rates. The platform now provides a seamless shopping experience 
-          across all devices.
+          Capturing the magic and emotion of your special moments with timeless elegance and 
+          artistic vision. We specialize in creating beautiful photography that tells 
+          your unique story through authentic moments and stunning compositions. <br /> <br /> 
+          From intimate ceremonies to grand celebrations, we preserve every precious detail—the 
+          stolen glances, joyful tears, heartfelt expressions, and jubilant celebrations. Our approach 
+          blends photojournalistic storytelling with artistic portraiture, ensuring your 
+          album becomes a treasured keepsake. We work discreetly to capture genuine emotions while 
+          creating breathtaking portraits you'll cherish forever.
         </p>
       );
     },
   },
   {
-    description: "Graphic Design & Print",
-    title: "Annual Report Design",
-    src: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&h=600&fit=crop",
+    description: "Photography",
+    title: "Wedding Photography",
+    src: "/images/Weddings.jpg",
     ctaText: "View Project",
-    ctaLink: "/portfolio",
+    ctaLink: "/portfolio/photography#weddings",
     content: () => {
       return (
         <p>
-          An award-winning annual report design that transformed complex financial data 
-          into an engaging visual narrative. The design combined elegant typography, 
-          custom illustrations, and strategic use of white space. <br /> <br /> We created 
-          a cohesive design system that made the report both informative and visually 
-          appealing. The project included print design, digital PDF version, and interactive 
-          web elements. The report received recognition from design associations and set 
-          a new standard for corporate communications.
+          Capturing the magic and emotion of your special moments with timeless elegance and 
+          artistic vision. We specialize in creating beautiful photography that tells 
+          your unique story through authentic moments and stunning compositions. <br /> <br /> 
+          From intimate ceremonies to grand celebrations, we preserve every precious detail—the 
+          stolen glances, joyful tears, heartfelt expressions, and jubilant celebrations. Our approach 
+          blends photojournalistic storytelling with artistic portraiture, ensuring your 
+          album becomes a treasured keepsake. We work discreetly to capture genuine emotions while 
+          creating breathtaking portraits you'll cherish forever.
         </p>
       );
     },

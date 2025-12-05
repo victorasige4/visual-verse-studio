@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { FloatingParticles } from "@/components/ui/floating-particles";
 import { AnimatedCard } from "@/components/ui/animated-card";
 import { PixelatedCanvas } from "@/components/ui/pixelated-canvas";
+import { Spotlight } from "@/components/ui/spotlight";
 
 const About = () => {
   const missionRef = useRef(null);
@@ -33,6 +34,10 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+        <Spotlight
+          className="-top-40 left-0 md:-top-20 md:left-60"
+          fill="hsl(var(--accent))"
+        />
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div

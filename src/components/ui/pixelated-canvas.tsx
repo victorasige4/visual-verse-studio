@@ -526,7 +526,7 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
     };
 
     img.onerror = () => {
-      console.error("Failed to load image for PixelatedCanvas:", src);
+      // Image failed to load silently
     };
 
     if (responsive) {

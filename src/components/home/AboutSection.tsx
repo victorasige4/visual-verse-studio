@@ -41,26 +41,26 @@ export const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-square rounded-lg overflow-hidden shadow-2xl relative">
+            <div className="aspect-square rounded-lg overflow-hidden shadow-2xl relative w-full max-w-[500px] mx-auto">
               <PixelatedCanvas
                 src="/images/photographer.jpg"
                 width={500}
                 height={500}
-                cellSize={4}
-                dotScale={0.85}
+                cellSize={3}
+                dotScale={0.9}
                 shape="square"
                 backgroundColor="hsl(var(--background))"
-                dropoutStrength={0.3}
+                dropoutStrength={0.35}
                 interactive
-                distortionStrength={4}
-                distortionRadius={100}
+                distortionStrength={5}
+                distortionRadius={120}
                 distortionMode="swirl"
-                followSpeed={0.15}
-                jitterStrength={5}
-                jitterSpeed={3}
+                followSpeed={0.18}
+                jitterStrength={6}
+                jitterSpeed={3.5}
                 sampleAverage
                 tintColor="hsl(var(--accent))"
-                tintStrength={0.15}
+                tintStrength={0.12}
                 className="w-full h-full rounded-lg"
                 objectFit="cover"
               />

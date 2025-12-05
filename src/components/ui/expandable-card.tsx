@@ -27,7 +27,7 @@ export const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-5 w-5 text-white"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
@@ -88,38 +88,40 @@ export const ExpandableCardDemo = ({ cards }: ExpandableCardDemoProps) => {
       <AnimatePresence>
         {active ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
-            <motion.button
-              key={`button-${active.title}-${id}`}
-              layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-              onClick={() => setActive(null)}
-            >
-              <CloseIcon />
-            </motion.button>
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden relative"
             >
+              <motion.button
+                key={`button-${active.title}-${id}`}
+                layout
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.05,
+                  },
+                }}
+                className="flex absolute top-4 right-4 items-center justify-center bg-accent hover:bg-accent/90 rounded-full h-10 w-10 z-50 shadow-lg transition-all duration-300 hover:scale-110"
+                onClick={() => setActive(null)}
+              >
+                <CloseIcon />
+              </motion.button>
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <img
                   width={200}
                   height={200}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className={`w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover ${
+                    active.title === "Graduation Photography" ? "object-[center_20%]" : "object-top"
+                  }`}
                 />
               </motion.div>
 
@@ -182,7 +184,9 @@ export const ExpandableCardDemo = ({ cards }: ExpandableCardDemoProps) => {
                   height={100}
                   src={card.src}
                   alt={card.title}
-                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                  className={`h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover ${
+                    card.title === "Graduation Photography" ? "object-[center_20%]" : "object-top"
+                  }`}
                 />
               </motion.div>
               <div className="">

@@ -12,38 +12,29 @@ export const Cover = ({
   className?: string;
 }) => {
   const [hovered, setHovered] = useState(false);
-
   const ref = useRef<HTMLDivElement>(null);
-
   const [containerWidth, setContainerWidth] = useState(0);
   const [beamPositions, setBeamPositions] = useState<number[]>([]);
 
   useEffect(() => {
-    const updateDimensions = () => {
-      if (ref.current) {
-        setContainerWidth(ref.current?.clientWidth ?? 0);
-
-        const height = ref.current?.clientHeight ?? 0;
-        const numberOfBeams = Math.floor(height / 10); // Adjust the divisor to control the spacing
-        const positions = Array.from(
-          { length: numberOfBeams },
-          (_, i) => (i + 1) * (height / (numberOfBeams + 1))
-        );
-        setBeamPositions(positions);
-      }
-    };
-
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
+    if (ref.current) {
+      setContainerWidth(ref.current?.clientWidth ?? 0);
+      const height = ref.current?.clientHeight ?? 0;
+      const numberOfBeams = Math.floor(height / 10);
+      const positions = Array.from(
+        { length: numberOfBeams },
+        (_, i) => (i + 1) * (height / (numberOfBeams + 1))
+      );
+      setBeamPositions(positions);
+    }
+  }, [ref.current]);
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       ref={ref}
-      className="relative hover:bg-neutral-900  group/cover inline-block dark:bg-neutral-900 bg-neutral-100 px-2 py-2  transition duration-200 rounded-sm"
+      className="relative hover:bg-neutral-900 group/cover inline-block dark:bg-neutral-900 bg-neutral-100 px-2 py-2 transition duration-200 rounded-sm"
     >
       <AnimatePresence>
         {hovered && (
@@ -106,33 +97,32 @@ export const Cover = ({
       <motion.span
         key={String(hovered)}
         animate={{
-          scale: hovered ? 0.8 : 1,
-          x: hovered ? [0, -30, 30, -30, 30, 0] : 0,
-          y: hovered ? [0, 30, -30, 30, -30, 0] : 0,
+          scale: hovered ? 0.95 : 1,
+          x: hovered ? [0, -2, 2, -2, 2, 0] : 0,
+          y: hovered ? [0, 2, -2, 2, -2, 0] : 0,
         }}
         exit={{
-          filter: "none",
           scale: 1,
           x: 0,
           y: 0,
         }}
         transition={{
-          duration: 0.2,
+          duration: 0.3,
           x: {
-            duration: 0.2,
+            duration: 0.5,
             repeat: Infinity,
             repeatType: "loop",
+            ease: "easeInOut",
           },
           y: {
-            duration: 0.2,
+            duration: 0.5,
             repeat: Infinity,
             repeatType: "loop",
+            ease: "easeInOut",
           },
           scale: {
-            duration: 0.2,
-          },
-          filter: {
-            duration: 0.2,
+            duration: 0.3,
+            ease: "easeInOut",
           },
         }}
         className={cn(
@@ -165,7 +155,6 @@ export const Beam = ({
   width?: number;
 } & React.ComponentProps<typeof motion.svg>) => {
   const id = useId();
-
   return (
     <motion.svg
       width={width ?? "600"}
@@ -180,7 +169,6 @@ export const Beam = ({
         d={`M0 0.5H${width ?? "600"}`}
         stroke={`url(#svgGradient-${id})`}
       />
-
       <defs>
         <motion.linearGradient
           id={`svgGradient-${id}`}
@@ -231,4 +219,3 @@ export const CircleIcon = ({
     ></div>
   );
 };
-
