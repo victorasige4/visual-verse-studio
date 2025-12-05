@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualVerse OG Image</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        .background-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+        .logo-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2dd4bf, #06b6d4);
+            margin: 0 auto 30px;
+        }
+        h1 {
+            font-size: 120px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #2dd4bf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+        .tagline {
+            font-size: 36px;
+            color: #cbd5e1;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .accent-box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 20px;
+            filter: blur(60px);
+        }
+        .box-1 {
+            top: -100px;
+            right: -50px;
+        }
+        .box-2 {
+            bottom: -100px;
+            left: -50px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="accent-box box-1"></div>
+    <div class="accent-box box-2"></div>
+    <div class="content">
+        <div class="logo-line"></div>
+        <h1>VisualVerse</h1>
+        <p class="tagline">Bold. Creative. Cinematic.</p>
+    </div>
+</body>
+</html>
+
+

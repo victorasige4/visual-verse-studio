@@ -297,7 +297,6 @@ export const BlurImage = ({
       src={src}
       loading="lazy"
       decoding="async"
-      fetchPriority="auto"
       alt={alt || "Background of a beautiful view"}
       {...rest}
     />

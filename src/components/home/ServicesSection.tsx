@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, memo } from "react";
+import { useRef } from "react";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { FloatingParticles } from "@/components/ui/floating-particles";
 
@@ -13,7 +13,7 @@ const services = [
   { number: "06", title: "Branding", description: "Identity & strategy", portfolioId: "branding" },
 ];
 
-export const ServicesSection = memo(() => {
+export const ServicesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-200px" });
 
@@ -74,4 +74,4 @@ export const ServicesSection = memo(() => {
       </div>
     </section>
   );
-});
+};

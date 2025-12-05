@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(75).fill(1);
-  const cols = new Array(50).fill(1);
-  const colors = [
+  const rows = new Array(150).fill(1);
+  const cols = new Array(100).fill(1);
+  let colors = [
     "#93c5fd",
     "#f9a8d4",
     "#86efac",

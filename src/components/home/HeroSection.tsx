@@ -5,21 +5,20 @@ import { HoverBorderGradient } from "../ui/hover-border-gradient";
 import { Link } from "react-router-dom";
 import { Boxes } from "../ui/background-boxes";
 import { cn } from "@/lib/utils";
-import { memo, useCallback } from "react";
 
-export const HeroSection = memo(() => {
-  const scrollToContent = useCallback(() => {
+export const HeroSection = () => {
+  const scrollToContent = () => {
     window.scrollTo({
       top: window.innerHeight,
       behavior: "smooth",
     });
-  }, []);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
-      {/* Background Boxes Animation */}
+      {/* Background Boxes Animation - Covering entire hero section */}
       <div className="absolute inset-0 w-full h-full bg-slate-900 z-0 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-      <Boxes />
+      <Boxes className="absolute inset-0 w-full h-full" />
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
@@ -83,4 +82,4 @@ export const HeroSection = memo(() => {
       </motion.button>
     </section>
   );
-});
+};
