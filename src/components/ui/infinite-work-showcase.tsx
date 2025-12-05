@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 
 interface WorkItem {
   image: string;
@@ -8,7 +8,7 @@ interface WorkItem {
   hideText?: boolean;
 }
 
-export const InfiniteWorkShowcase = ({
+export const InfiniteWorkShowcase = React.memo(({
   items,
   direction = "left",
   speed = "slow",
@@ -24,13 +24,37 @@ export const InfiniteWorkShowcase = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    addAnimation();
-  }, [direction, speed]);
-
   const [start, setStart] = useState(false);
 
-  function addAnimation() {
+  const getDirection = useCallback(() => {
+    if (containerRef.current) {
+      if (direction === "left") {
+        containerRef.current.style.setProperty(
+          "--animation-direction",
+          "forwards",
+        );
+      } else {
+        containerRef.current.style.setProperty(
+          "--animation-direction",
+          "reverse",
+        );
+      }
+    }
+  }, [direction]);
+
+  const getSpeed = useCallback(() => {
+    if (containerRef.current) {
+      if (speed === "fast") {
+        containerRef.current.style.setProperty("--animation-duration", "30s");
+      } else if (speed === "normal") {
+        containerRef.current.style.setProperty("--animation-duration", "50s");
+      } else {
+        containerRef.current.style.setProperty("--animation-duration", "70s");
+      }
+    }
+  }, [speed]);
+
+  const addAnimation = useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -48,35 +72,11 @@ export const InfiniteWorkShowcase = ({
       getSpeed();
       setStart(true);
     }
-  }
+  }, [items.length, getDirection, getSpeed]);
 
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards",
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse",
-        );
-      }
-    }
-  };
-
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "30s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "50s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "70s");
-      }
-    }
-  };
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
 
   return (
     <div
@@ -111,6 +111,7 @@ export const InfiniteWorkShowcase = ({
                 className="w-full h-full object-cover"
                 loading={idx < 4 ? "eager" : "lazy"}
                 decoding="async"
+                fetchPriority={idx < 2 ? "high" : "auto"}
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                 }}
@@ -143,5 +144,5 @@ export const InfiniteWorkShowcase = ({
       </ul>
     </div>
   );
-};
+});
 

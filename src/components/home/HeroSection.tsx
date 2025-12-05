@@ -5,14 +5,15 @@ import { HoverBorderGradient } from "../ui/hover-border-gradient";
 import { Link } from "react-router-dom";
 import { Boxes } from "../ui/background-boxes";
 import { cn } from "@/lib/utils";
+import { memo, useCallback } from "react";
 
-export const HeroSection = () => {
-  const scrollToContent = () => {
+export const HeroSection = memo(() => {
+  const scrollToContent = useCallback(() => {
     window.scrollTo({
       top: window.innerHeight,
       behavior: "smooth",
     });
-  };
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
@@ -82,4 +83,4 @@ export const HeroSection = () => {
       </motion.button>
     </section>
   );
-};
+});

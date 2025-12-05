@@ -98,14 +98,14 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                 <p className="break-words">
-                  At Visual Verse, we believe that every brand, every event, and every moment 
-                  has a story waiting to be told. We are a creative media powerhouse 
-                  dedicated to bringing stories to life, one frame at a time.
+                At Visual Verse, we believe that every brand, every event, and every moment 
+                has a story waiting to be told. We are a creative media powerhouse 
+                dedicated to bringing stories to life, one frame at a time.
                 </p>
                 <p className="break-words">
-                  From stunning visuals to engaging digital experiences, we craft content that 
-                  doesn't just look good—it resonates, captivates, and inspires. Whatever service you need, 
-                  we turn ideas into impactful visual narratives that leave a lasting impression.
+                From stunning visuals to engaging digital experiences, we craft content that 
+                doesn't just look good—it resonates, captivates, and inspires. Whatever service you need, 
+                we turn ideas into impactful visual narratives that leave a lasting impression.
                 </p>
               </div>
             </motion.div>

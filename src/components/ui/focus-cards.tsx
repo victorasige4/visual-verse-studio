@@ -27,6 +27,9 @@ export const Card = React.memo(
           src={card.src}
           alt={card.title}
           className="object-cover absolute inset-0 w-full h-full"
+          loading="lazy"
+          decoding="async"
+          fetchPriority={index < 3 ? "high" : "auto"}
         />
         {/* Mobile: Always show title, Desktop: Show on hover */}
         <div

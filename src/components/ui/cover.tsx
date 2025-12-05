@@ -17,16 +17,16 @@ export const Cover = ({
   const [beamPositions, setBeamPositions] = useState<number[]>([]);
 
   useEffect(() => {
-    if (ref.current) {
-      setContainerWidth(ref.current?.clientWidth ?? 0);
-      const height = ref.current?.clientHeight ?? 0;
+      if (ref.current) {
+        setContainerWidth(ref.current?.clientWidth ?? 0);
+        const height = ref.current?.clientHeight ?? 0;
       const numberOfBeams = Math.floor(height / 10);
-      const positions = Array.from(
-        { length: numberOfBeams },
-        (_, i) => (i + 1) * (height / (numberOfBeams + 1))
-      );
-      setBeamPositions(positions);
-    }
+        const positions = Array.from(
+          { length: numberOfBeams },
+          (_, i) => (i + 1) * (height / (numberOfBeams + 1))
+        );
+        setBeamPositions(positions);
+      }
   }, [ref.current]);
 
   return (

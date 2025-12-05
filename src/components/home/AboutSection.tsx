@@ -24,15 +24,15 @@ export const AboutSection = () => {
             </h2>
             <div className="space-y-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
               <p className="break-words">
-                We are VisualVerse — a full-service creative media agency dedicated to crafting 
-                cinematic experiences that resonate. From bold branding to immersive storytelling, 
-                we transform ideas into unforgettable visual narratives.
-              </p>
+              We are VisualVerse — a full-service creative media agency dedicated to crafting 
+              cinematic experiences that resonate. From bold branding to immersive storytelling, 
+              we transform ideas into unforgettable visual narratives.
+            </p>
               <p className="break-words">
-                Our mission is simple: to create work that doesn't just look beautiful, 
-                but leaves a lasting impression. Every project is an opportunity to push 
-                boundaries and redefine what's possible in creative media.
-              </p>
+              Our mission is simple: to create work that doesn't just look beautiful, 
+              but leaves a lasting impression. Every project is an opportunity to push 
+              boundaries and redefine what's possible in creative media.
+            </p>
             </div>
           </motion.div>
 

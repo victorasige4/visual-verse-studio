@@ -147,6 +147,24 @@ All colors MUST be HSL.
     transform: translateZ(0);
     backface-visibility: hidden;
   }
+  
+  /* Optimize images */
+  img {
+    content-visibility: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Optimize sections with content-visibility */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+  
+  /* Reduce paint complexity */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @layer utilities {

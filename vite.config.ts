@@ -19,18 +19,30 @@ export default defineConfig(({ mode }) => ({
     // Optimize build output
     rollupOptions: {
       output: {
-        manualChunks: {
+        manualChunks: (id) => {
           // Split vendor chunks for better caching
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'framer-motion': ['framer-motion'],
-          'ui-components': [
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-dropdown-menu',
-            '@radix-ui/react-tooltip',
-            '@radix-ui/react-slot',
-          ],
-          'icons': ['lucide-react', '@tabler/icons-react'],
-          'animation-libs': ['gsap'],
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'react-vendor';
+            }
+            if (id.includes('framer-motion')) {
+              return 'framer-motion';
+            }
+            if (id.includes('@radix-ui')) {
+              return 'ui-components';
+            }
+            if (id.includes('lucide-react') || id.includes('@tabler/icons')) {
+              return 'icons';
+            }
+            if (id.includes('gsap') || id.includes('three')) {
+              return 'animation-libs';
+            }
+            if (id.includes('@tsparticles')) {
+              return 'particles';
+            }
+            // Other node_modules
+            return 'vendor';
+          }
         },
       },
     },
@@ -42,6 +54,10 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
     // Optimize assets
     assetsInlineLimit: 4096,
+    // Disable sourcemaps in production for faster builds
+    sourcemap: false,
+    // Optimize target
+    target: 'esnext',
   },
   // Optimize dependencies
   optimizeDeps: {
