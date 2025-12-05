@@ -124,9 +124,27 @@ All colors MUST be HSL.
     @apply font-heading font-bold;
   }
   
-  /* Smooth scroll behavior */
+  /* Performance optimizations */
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Optimize animations */
+  @media (prefers-reduced-motion: no-preference) {
+    * {
+      scroll-behavior: smooth;
+    }
+  }
+  
+  /* Hardware acceleration for animated elements */
+  [class*="animate-"], 
+  [class*="motion-"],
+  .will-change-transform {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
 

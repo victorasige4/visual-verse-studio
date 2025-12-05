@@ -38,6 +38,10 @@ export default defineConfig(({ mode }) => ({
     chunkSizeWarningLimit: 1000,
     // Enable minification with esbuild (faster than terser)
     minify: 'esbuild',
+    // Enable CSS code splitting
+    cssCodeSplit: true,
+    // Optimize assets
+    assetsInlineLimit: 4096,
   },
   // Optimize dependencies
   optimizeDeps: {

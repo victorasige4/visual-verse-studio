@@ -1,4 +1,4 @@
-export const FloatingParticles = ({ count = 20 }: { count?: number }) => {
+export const FloatingParticles = ({ count = 10 }: { count?: number }) => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {[...Array(count)].map((_, i) => (
@@ -10,6 +10,7 @@ export const FloatingParticles = ({ count = 20 }: { count?: number }) => {
             top: `${Math.random() * 100}%`,
             animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
             animationDelay: `${Math.random() * 2}s`,
+            willChange: 'transform',
           }}
         />
       ))}
