@@ -121,14 +121,14 @@ const photographyData = [
     content: (
       <WorkShowcase
         works={[
-          { image: "/images/wedding photos/A(32of640).jpg", title: "Wedding Photo 1", hideText: true },
-          { image: "/images/wedding photos/A(64of640).jpg", title: "Wedding Photo 2", hideText: true },
-          { image: "/images/wedding photos/A(112of640).jpg", title: "Wedding Photo 3", hideText: true },
-          { image: "/images/wedding photos/A(123of640).jpg", title: "Wedding Photo 4", hideText: true },
-          { image: "/images/wedding photos/A(130of640).jpg", title: "Wedding Photo 5", hideText: true },
-          { image: "/images/wedding photos/A(200of640).jpg", title: "Wedding Photo 6", hideText: true },
-          { image: "/images/wedding photos/A(240of640).jpg", title: "Wedding Photo 7", hideText: true },
-          { image: "/images/wedding photos/A(478of640).jpg", title: "Wedding Photo 8", hideText: true },
+          { image: "/images/wedding photos/couple-posing-wedding-front-view.jpg", title: "Wedding Photo 1", hideText: true },
+          { image: "/images/wedding photos/couple-posing-wedding-full-shot.jpg", title: "Wedding Photo 2", hideText: true },
+          { image: "/images/wedding photos/full-shot-couple-holding-hands.jpg", title: "Wedding Photo 3", hideText: true },
+          { image: "/images/wedding photos/full-shot-couple-posing-together.jpg", title: "Wedding Photo 4", hideText: true },
+          { image: "/images/wedding photos/full-shot-happy-couple-with-flowers.jpg", title: "Wedding Photo 5", hideText: true },
+          { image: "/images/wedding photos/full-shot-smiley-bride-with-flowers.jpg", title: "Wedding Photo 6", hideText: true },
+          { image: "/images/wedding photos/low-angle-couple-kissing-outdoors.jpg", title: "Wedding Photo 7", hideText: true },
+          { image: "/images/wedding photos/side-view-romantic-couple-kissing.jpg", title: "Wedding Photo 8", hideText: true },
         ]}
       />
     ),

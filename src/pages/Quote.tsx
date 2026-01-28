@@ -242,7 +242,7 @@ const Quote = () => {
       {/* Why Choose Us */}
       <section className="cinematic-section bg-gradient-to-b from-muted/20 to-background relative z-10">
         <FloatingParticles />
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -259,7 +259,7 @@ const Quote = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: "Story-Led Creativity",

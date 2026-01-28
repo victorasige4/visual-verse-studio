@@ -205,7 +205,7 @@ export const Card = React.memo(({
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-50 h-screen overflow-auto">
+          <div className="fixed inset-0 z-50 h-screen overflow-auto pt-24 pb-10">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -218,7 +218,7 @@ export const Card = React.memo(({
               exit={{ opacity: 0 }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-background p-4 font-sans md:p-10"
+              className="relative z-[60] mx-auto h-fit max-w-5xl rounded-3xl bg-background p-4 font-sans md:p-10"
             >
               <button
                 className="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-accent hover:bg-accent/90 transition-all duration-300 hover:scale-110 shadow-lg z-50"
