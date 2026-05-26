@@ -27,7 +27,7 @@ export const BackgroundRippleEffect = ({
         "dark:[--cell-border-color:hsl(174_64%_47%_/_0.4)] dark:[--cell-fill-color:hsl(174_64%_47%_/_0.2)] dark:[--cell-shadow-color:hsl(174_64%_47%_/_0.5)]",
       )}
     >
-      <div className="relative h-auto w-full overflow-hidden">
+      <div className="relative h-auto w-auto overflow-hidden">
         <div className="pointer-events-none absolute inset-0 z-[2] h-full w-full overflow-hidden" />
 
         <DivGrid
@@ -85,13 +85,11 @@ const DivGrid = ({
 
   const gridStyle: React.CSSProperties = {
     display: "grid",
-    // Full-bleed horizontally: stretch from left edge to right edge.
-    // Each column is at least `cellSize` but can grow to fill the available width.
-    gridTemplateColumns: `repeat(${cols}, minmax(${cellSize}px, 1fr))`,
+    gridTemplateColumns: `repeat(${cols}, ${cellSize}px)`,
     gridTemplateRows: `repeat(${rows}, ${cellSize}px)`,
-    width: "100%",
+    width: cols * cellSize,
     height: rows * cellSize,
-    marginInline: 0,
+    marginInline: "auto",
   };
 
   return (
